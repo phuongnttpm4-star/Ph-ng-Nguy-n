@@ -2,8 +2,8 @@
 <html lang="vi">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>TRÒ CHƠI LẬT HÌNH TRÚC XANH - THÀNH PHẦN NGUYÊN TỬ</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+  <title>TRÒ CHƠI LẬT HÌNH TRÚC XANH - CHƯƠNG 1: CẤU TẠO NGUYÊN TỬ</title>
   
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -125,7 +125,17 @@
       transition: opacity 0.8s ease, transform 0.8s ease;
     }
 
-    /* Custom Scrollbar for Settings Sidebar */
+    /* Custom Scrollbar & Touch Optimizations */
+    * {
+      -webkit-tap-highlight-color: transparent;
+    }
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
     ::-webkit-scrollbar {
       width: 6px;
     }
@@ -145,33 +155,36 @@
 <body class="bg-slate-950 text-slate-100 font-sans antialiased min-h-screen flex flex-col justify-between overflow-x-hidden selection:bg-cyan-500 selection:text-slate-950">
 
   <!-- ==================== HEADER ==================== -->
-  <header class="w-full bg-slate-900/80 backdrop-blur-md border-b border-white/10 px-4 py-3 sticky top-0 z-30 shadow-lg">
-    <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-2 sm:gap-0">
+  <header class="w-full bg-slate-900/80 backdrop-blur-md border-b border-white/10 px-3 sm:px-4 py-2 sticky top-0 z-30 shadow-lg">
+    <div class="max-w-7xl mx-auto flex items-center justify-between gap-2">
       
       <!-- Left Title -->
-      <div class="flex items-center gap-3">
-        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-cyan-600 via-teal-500 to-emerald-400 p-0.5 shadow-md flex items-center justify-center">
+      <div class="flex items-center gap-2 sm:gap-3 min-w-0">
+        <div class="w-8 h-8 sm:w-10 sm:h-10 rounded-xl bg-gradient-to-tr from-cyan-600 via-teal-500 to-emerald-400 p-0.5 shadow-md flex items-center justify-center shrink-0">
           <div class="w-full h-full bg-slate-950 rounded-[10px] flex items-center justify-center">
-            <span class="text-xl">⚛️</span>
+            <span class="text-sm sm:text-xl">⚛️</span>
           </div>
         </div>
-        <div>
-          <h1 class="text-lg sm:text-xl font-extrabold tracking-wide bg-gradient-to-r from-cyan-300 via-teal-200 to-emerald-300 bg-clip-text text-transparent">
-            TRÚC XANH HÓA HỌC 10 - THÀNH PHẦN NGUYÊN TỬ
+        <div class="min-w-0">
+          <h1 id="header-title" class="text-xs xs:text-sm sm:text-lg md:text-xl font-extrabold tracking-wide bg-gradient-to-r from-cyan-300 via-teal-200 to-emerald-300 bg-clip-text text-transparent truncate">
+            TRÚC XANH HÓA HỌC 10 - CHƯƠNG 1
           </h1>
-          <p class="text-xs text-slate-400 font-medium">Trò chơi lật hình tương tác &amp; Khám phá hình nền bí ẩn</p>
+          <p id="header-subtitle" class="text-[10px] sm:text-xs text-cyan-300 font-medium flex items-center gap-1 truncate">
+            <span class="inline-block w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-emerald-400 animate-pulse shrink-0"></span>
+            <span id="lesson-badge" class="truncate">Bài 1: Thành phần của nguyên tử</span>
+          </p>
         </div>
       </div>
 
       <!-- Right Action Buttons -->
-      <div class="flex items-center gap-3">
-        <button id="btn-fullscreen" onclick="toggleFullscreen()" class="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 border border-slate-700 text-xs sm:text-sm font-semibold flex items-center gap-1.5 transition-all shadow hover:shadow-cyan-500/20 active:scale-95">
+      <div class="flex items-center gap-1.5 sm:gap-2 shrink-0">
+        <button id="btn-fullscreen" onclick="toggleFullscreen()" class="px-2 py-1.5 sm:px-3 sm:py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 border border-slate-700 text-xs sm:text-sm font-semibold flex items-center gap-1 transition-all shadow hover:shadow-cyan-500/20 active:scale-95">
           <span>🖥️</span>
-          <span>Toàn màn hình</span>
+          <span class="hidden md:inline">Toàn màn hình</span>
         </button>
-        <button id="btn-settings" onclick="openSettings()" class="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 border border-slate-700 text-xs sm:text-sm font-semibold flex items-center gap-1.5 transition-all shadow hover:shadow-cyan-500/20 active:scale-95">
+        <button id="btn-settings" onclick="openSettings()" class="px-2 py-1.5 sm:px-3 sm:py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 border border-slate-700 text-xs sm:text-sm font-semibold flex items-center gap-1 transition-all shadow hover:shadow-cyan-500/20 active:scale-95">
           <span>⚙️</span>
-          <span>Cài đặt</span>
+          <span class="hidden xs:inline">Cài đặt</span>
         </button>
       </div>
 
@@ -179,17 +192,59 @@
   </header>
 
 
-  <!-- ==================== MAIN CONTAINER (16:9 RATIO FRAME) ==================== -->
-  <main class="flex-1 flex items-center justify-center p-2 sm:p-4 my-auto">
+  <!-- ==================== LESSON SELECTION BAR (4 NÚT CHỌN 4 BÀI) ==================== -->
+  <nav class="w-full bg-slate-900/70 border-b border-white/5 px-2 py-1.5 sticky top-[49px] sm:top-[57px] z-20 backdrop-blur-sm">
+    <div class="max-w-5xl mx-auto flex items-center justify-start sm:justify-center gap-1.5 sm:gap-2 overflow-x-auto no-scrollbar py-0.5 px-1">
+      <button 
+        id="btn-lesson-1" 
+        onclick="selectLesson(1)" 
+        class="lesson-btn px-2.5 sm:px-3 py-1.5 rounded-xl text-xs sm:text-sm font-bold transition-all border border-cyan-500/40 bg-gradient-to-r from-cyan-600 to-teal-600 text-white shadow-lg shadow-cyan-500/20 flex items-center gap-1.5 active:scale-95 shrink-0 whitespace-nowrap"
+      >
+        <span>🧪</span>
+        <span>Bài 1: Thành phần nguyên tử</span>
+      </button>
+
+      <button 
+        id="btn-lesson-2" 
+        onclick="selectLesson(2)" 
+        class="lesson-btn px-2.5 sm:px-3 py-1.5 rounded-xl text-xs sm:text-sm font-bold transition-all border border-slate-700 bg-slate-800/80 text-slate-300 hover:text-white hover:bg-slate-700 flex items-center gap-1.5 active:scale-95 shrink-0 whitespace-nowrap"
+      >
+        <span>⚛️</span>
+        <span>Bài 2: Nguyên tố hoá học</span>
+      </button>
+
+      <button 
+        id="btn-lesson-3" 
+        onclick="selectLesson(3)" 
+        class="lesson-btn px-2.5 sm:px-3 py-1.5 rounded-xl text-xs sm:text-sm font-bold transition-all border border-slate-700 bg-slate-800/80 text-slate-300 hover:text-white hover:bg-slate-700 flex items-center gap-1.5 active:scale-95 shrink-0 whitespace-nowrap"
+      >
+        <span>💫</span>
+        <span>Bài 3: Cấu trúc vỏ electron</span>
+      </button>
+
+      <button 
+        id="btn-lesson-4" 
+        onclick="selectLesson(4)" 
+        class="lesson-btn px-2.5 sm:px-3 py-1.5 rounded-xl text-xs sm:text-sm font-bold transition-all border border-slate-700 bg-slate-800/80 text-slate-300 hover:text-white hover:bg-slate-700 flex items-center gap-1.5 active:scale-95 shrink-0 whitespace-nowrap"
+      >
+        <span>📚</span>
+        <span>Bài 4: Ôn tập Chương 1</span>
+      </button>
+    </div>
+  </nav>
+
+
+  <!-- ==================== MAIN CONTAINER (ADAPTIVE MOBILE FRAME) ==================== -->
+  <main class="flex-1 flex items-center justify-center p-2 sm:p-4 my-auto w-full">
     
-    <div class="w-full max-w-5xl aspect-video relative rounded-2xl overflow-hidden border border-cyan-500/20 bg-slate-900/90 shadow-[0_0_50px_rgba(2,132,199,0.15)] flex flex-col justify-between p-2 sm:p-4">
+    <div class="w-full max-w-5xl min-h-[420px] xs:min-h-[460px] sm:min-h-0 sm:aspect-video relative rounded-2xl overflow-hidden border border-cyan-500/20 bg-slate-900/90 shadow-[0_0_50px_rgba(2,132,199,0.15)] flex flex-col justify-between p-2 sm:p-3 md:p-4">
       
       <!-- Secret Background Image Layer -->
       <div id="atomic-bg" class="absolute inset-0 bg-cover bg-center transition-all duration-700" style="background-image: url('https://images.unsplash.com/photo-1507668077129-56e32842fceb?q=80&w=1920');"></div>
       <div class="absolute inset-0 bg-slate-950/20 pointer-events-none"></div>
 
-      <!-- 4x3 Grid for 12 Cards -->
-      <div id="card-grid" class="relative z-10 grid grid-cols-4 grid-rows-3 gap-2 sm:gap-3 md:gap-4 w-full h-full">
+      <!-- Adaptive Grid: 3 cols x 4 rows on mobile portrait, 4 cols x 3 rows on tablet & desktop -->
+      <div id="card-grid" class="relative z-10 grid grid-cols-3 grid-rows-4 sm:grid-cols-4 sm:grid-rows-3 gap-2 sm:gap-3 md:gap-4 w-full h-full">
         <!-- 12 Cards injected dynamically via JS -->
       </div>
 
@@ -199,50 +254,50 @@
 
 
   <!-- ==================== FOOTER ==================== -->
-  <footer class="w-full bg-slate-900/90 backdrop-blur-md border-t border-white/10 p-3 sm:p-4 z-20 shadow-2xl">
-    <div class="max-w-5xl mx-auto flex flex-col gap-3">
+  <footer class="w-full bg-slate-900/90 backdrop-blur-md border-t border-white/10 p-2.5 sm:p-4 z-20 shadow-2xl">
+    <div class="max-w-5xl mx-auto flex flex-col gap-2.5 sm:gap-3">
       
       <!-- Progress Bar & Score Line -->
       <div class="flex items-center justify-between text-xs sm:text-sm font-bold text-slate-300">
-        <div class="flex items-center gap-2">
+        <div class="flex items-center gap-1.5 sm:gap-2">
           <span>Tiến trình:</span>
           <span id="progress-text" class="text-emerald-400">0 / 6 cặp</span>
         </div>
-        <div class="w-1/3 bg-slate-800 rounded-full h-2.5 overflow-hidden border border-slate-700">
+        <div class="w-1/4 sm:w-1/3 bg-slate-800 rounded-full h-2 sm:h-2.5 overflow-hidden border border-slate-700">
           <div id="progress-bar" class="bg-gradient-to-r from-teal-500 to-emerald-400 h-full w-0 transition-all duration-500"></div>
         </div>
-        <div class="flex items-center gap-4">
-          <div>Lượt lật: <span id="moves-count" class="text-cyan-400">0</span></div>
+        <div class="flex items-center gap-2 sm:gap-4">
+          <div>Lượt: <span id="moves-count" class="text-cyan-400">0</span></div>
           <div>Điểm: <span id="score-text" class="text-amber-400">0</span></div>
         </div>
       </div>
 
       <!-- Secret Keyword Display Bar -->
-      <div class="flex flex-col items-center gap-1.5 bg-slate-950/60 p-2 sm:p-3 rounded-xl border border-white/5">
-        <div class="text-xs uppercase font-bold tracking-wider text-slate-400 flex items-center gap-1">
+      <div class="flex flex-col items-center gap-1 sm:gap-1.5 bg-slate-950/60 p-2 sm:p-3 rounded-xl border border-white/5">
+        <div class="text-[10px] xs:text-xs uppercase font-bold tracking-wider text-slate-400 flex items-center gap-1 text-center">
           <span>🔑</span>
-          <span>TỪ KHÓA BÍ MẬT (MỞ TỪNG Ô CHỮ KHI LẬT ĐÚNG):</span>
+          <span>TỪ KHÓA BÍ MẬT BÀI <span id="current-lesson-num">1</span> (MỞ TỪNG Ô CHỮ KHI LẬT ĐÚNG):</span>
         </div>
-        <div id="keyword-slots" class="flex flex-wrap items-center justify-center gap-1.5 sm:gap-2">
+        <div id="keyword-slots" class="flex flex-wrap items-center justify-center gap-1 xs:gap-1.5 sm:gap-2">
           <!-- Keyword letter boxes rendered dynamically -->
         </div>
       </div>
 
       <!-- Answer TextBox & Guess Button -->
-      <div class="flex items-center justify-center gap-2 max-w-xl mx-auto w-full">
+      <div class="flex flex-col xs:flex-row items-center justify-center gap-2 max-w-xl mx-auto w-full">
         <input 
           type="text" 
           id="guess-input" 
           placeholder="Nhập câu trả lời từ khóa bí mật..." 
-          class="flex-1 bg-slate-950/80 border border-slate-700 focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400 rounded-xl px-4 py-2 text-xs sm:text-sm text-white placeholder-slate-500 outline-none transition-all shadow-inner"
+          class="w-full xs:flex-1 bg-slate-950/80 border border-slate-700 focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400 rounded-xl px-3 sm:px-4 py-2 text-xs sm:text-sm text-white placeholder-slate-500 outline-none transition-all shadow-inner h-9 sm:h-10"
           onkeydown="if(event.key === 'Enter') guessKeyword()"
         />
         <button 
           onclick="guessKeyword()" 
-          class="bg-gradient-to-r from-cyan-600 to-teal-600 hover:from-cyan-500 hover:to-teal-500 text-white font-bold px-4 py-2 rounded-xl text-xs sm:text-sm transition-all shadow-lg shadow-cyan-600/20 active:scale-95 flex items-center gap-1.5 whitespace-nowrap"
+          class="w-full xs:w-auto bg-gradient-to-r from-cyan-600 to-teal-600 hover:from-cyan-500 hover:to-teal-500 text-white font-bold px-4 py-2 rounded-xl text-xs sm:text-sm transition-all shadow-lg shadow-cyan-600/20 active:scale-95 flex items-center justify-center gap-1.5 whitespace-nowrap h-9 sm:h-10 shrink-0"
         >
           <span>🎯</span>
-          <span>Đoán ô chữ bí mật</span>
+          <span>Đoán ô chữ</span>
         </button>
       </div>
 
@@ -253,7 +308,7 @@
   <!-- ==================== SETTINGS SIDE PANEL ==================== -->
   <div id="settings-backdrop" onclick="closeSettings()" class="fixed inset-0 bg-slate-950/70 backdrop-blur-sm z-40 hidden transition-opacity"></div>
   
-  <aside id="settings-panel" class="fixed top-0 right-0 h-full w-80 sm:w-96 bg-slate-900/95 text-slate-100 backdrop-blur-2xl border-l border-white/10 z-50 transform transition-transform duration-300 translate-x-full p-5 flex flex-col justify-between overflow-y-auto shadow-2xl">
+  <aside id="settings-panel" class="fixed top-0 right-0 h-full w-full xs:w-80 sm:w-96 bg-slate-900/95 text-slate-100 backdrop-blur-2xl border-l border-white/10 z-50 transform transition-transform duration-300 translate-x-full p-4 sm:p-5 flex flex-col justify-between overflow-y-auto shadow-2xl">
     
     <div class="flex flex-col gap-5">
       <!-- Panel Header -->
@@ -269,7 +324,7 @@
       <div class="flex flex-col gap-3">
         <button onclick="restartGame()" class="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-bold py-2.5 px-4 rounded-xl text-sm transition-all shadow-lg shadow-emerald-600/20 flex items-center justify-center gap-2 active:scale-95">
           <span>🔄</span>
-          <span>Chơi lại từ đầu</span>
+          <span>Chơi lại từ đầu (Bài hiện tại)</span>
         </button>
 
         <button id="btn-toggle-sound" onclick="toggleSound()" class="w-full bg-slate-800 hover:bg-slate-700 border border-slate-700 text-white font-semibold py-2 px-4 rounded-xl text-sm transition-all flex items-center justify-between active:scale-95">
@@ -288,7 +343,7 @@
         <div class="flex flex-col gap-1.5">
           <label class="text-xs font-bold text-slate-300 flex items-center gap-1">
             <span>🔑</span>
-            <span>Từ khóa bí mật:</span>
+            <span>Từ khóa bí mật (Bài <span id="settings-lesson-label">1</span>):</span>
           </label>
           <input 
             type="text" 
@@ -316,7 +371,7 @@
         <div class="flex flex-col gap-1.5">
           <label class="text-xs font-bold text-slate-300 flex items-center gap-1">
             <span>📝</span>
-            <span>Dữ liệu câu hỏi (Mảng JSON):</span>
+            <span>Dữ liệu câu hỏi bài hiện tại (Mảng JSON):</span>
           </label>
           <textarea 
             id="setting-json" 
@@ -334,7 +389,7 @@
         Lưu &amp; Áp dụng
       </button>
       <button onclick="restoreDefaults()" class="w-full bg-slate-800 hover:bg-slate-700 text-slate-400 hover:text-white font-medium py-2 px-4 rounded-xl text-xs transition-colors">
-        Khôi phục mặc định
+        Khôi phục tất cả bài về mặc định
       </button>
     </div>
 
@@ -351,43 +406,378 @@
   <!-- ==================== GAME JAVASCRIPT LOGIC ==================== -->
   <script>
     /**
-     * MẶC ĐỊNH DỮ LIỆU CÂU HỎI TRÚC XANH HÓA HỌC 10
-     * Bắt buộc dùng mảng 6 cặp này theo đúng yêu cầu đề bài
+     * DỮ LIỆU CÂU HỎI & TỪ KHÓA MẶC ĐỊNH CHO 4 BÀI CHƯƠNG 1 (HÓA HỌC 10)
      */
-    const DEFAULT_DATA = [
-      {
-        "left": "Hạt mang điện tích dương, nằm trong hạt nhân nguyên tử ($p$)",
-        "right": "Proton (điện tích tương đối $+1$)"
+    const CHAPTER_LESSONS = {
+      1: {
+        title: "Bài 1: Thành phần của nguyên tử",
+        keyword: "SỰ SỐNG",
+        bgUrl: "/atom_components_lesson1.svg",
+        questions: [
+          // Mức độ Nhận biết
+          {
+            "left": "Hạt mang điện tích dương, nằm trong hạt nhân nguyên tử ($p$)",
+            "right": "Proton (điện tích tương đối $+1$)"
+          },
+          {
+            "left": "Hạt không mang điện, nằm trong hạt nhân nguyên tử ($n$)",
+            "right": "Neutron (điện tích tương đối $0$)"
+          },
+          {
+            "left": "Hạt mang điện tích âm, nằm ở lớp vỏ nguyên tử ($e$)",
+            "right": "Electron (điện tích tương đối $-1$)"
+          },
+          {
+            "left": "Nguyên tử có cấu tạo gồm mấy phần chính?",
+            "right": "2 phần: Hạt nhân và Lớp vỏ electron"
+          },
+          {
+            "left": "Tập hợp các hạt nằm trong hạt nhân nguyên tử gồm",
+            "right": "Proton và Neutron (trừ $^1H$)"
+          },
+          {
+            "left": "Kích thước hạt nhân so với kích thước nguyên tử như thế nào?",
+            "right": "Vô cùng nhỏ (nhỏ hơn khoảng $10^4 - 10^5$ lần)"
+          },
+          {
+            "left": "Hạt nào trong nguyên tử có khối lượng xấp xỉ $1\\text{ amu}$?",
+            "right": "Proton và Neutron"
+          },
+          {
+            "left": "Khối lượng của hạt nào rất nhỏ, xấp xỉ $0{,}00055\\text{ amu}$?",
+            "right": "Electron"
+          },
+          // Mức độ Thông hiểu
+          {
+            "left": "Đại lượng $A$ bằng tổng số proton ($Z$) và số neutron ($N$) gọi là",
+            "right": "Số khối ($A = Z + N$)"
+          },
+          {
+            "left": "Vì sao nguyên tử luôn trung hòa về điện?",
+            "right": "Vì số proton ($p$) = số electron ($e$)"
+          },
+          {
+            "left": "Điện tích hạt nhân nguyên tử được tính bằng công thức nào?",
+            "right": "$+Z$ (với $Z$ là số hiệu nguyên tử)"
+          },
+          {
+            "left": "Đại lượng đặc trưng nhất cho một nguyên tố hoá học là",
+            "right": "Số hiệu nguyên tử ($Z$)"
+          },
+          {
+            "left": "Khối lượng nguyên tử tập trung chủ yếu ở đâu?",
+            "right": "Hạt nhân nguyên tử (do $m_e$ rất nhỏ)"
+          },
+          {
+            "left": "Nếu nguyên tử Sodium có $11p$ thì số electron ở lớp vỏ là",
+            "right": "11 electron"
+          },
+          {
+            "left": "Số hiệu nguyên tử ($Z$) của một nguyên tố bằng giá trị nào?",
+            "right": "Số đơn vị điện tích hạt nhân ($Z = p = e$)"
+          },
+          // Mức độ Vận dụng thấp
+          {
+            "left": "Nguyên tử $Na$ có $Z = 11$ và $N = 12$. Số khối $A$ của $Na$ là",
+            "right": "$A = 11 + 12 = 23$"
+          },
+          {
+            "left": "Một nguyên tử có tổng số hạt là 40, số hạt mang điện là 26. Số neutron là",
+            "right": "$N = 40 - 26 = 14$"
+          },
+          {
+            "left": "Nguyên tử $Al$ có $13p$ và số khối $A = 27$. Số neutron trong $Al$ là",
+            "right": "$N = 27 - 13 = 14$"
+          },
+          {
+            "left": "Tổng số hạt trong nguyên tử $F$ là 27, số neutron là 10. Số electron là",
+            "right": "$e = (27 - 10) / 2 = 9$"
+          },
+          {
+            "left": "Hạt nhân nguyên tử $Ca$ có điện tích $+20$. Số electron ở lớp vỏ là",
+            "right": "20 electron"
+          }
+        ]
       },
-      {
-        "left": "Hạt không mang điện, nằm trong hạt nhân nguyên tử ($n$)",
-        "right": "Neutron (điện tích tương đối $0$)"
+      2: {
+        title: "Bài 2: Nguyên tố hoá học",
+        keyword: "ĐA DẠNG",
+        bgUrl: "/chemical_elements_lesson2.svg",
+        questions: [
+          // Mức độ Nhận biết
+          {
+            "left": "Tập hợp những nguyên tử có cùng số đơn vị điện tích hạt nhân ($Z$)",
+            "right": "Nguyên tố hoá học"
+          },
+          {
+            "left": "Các nguyên tử có cùng số proton ($Z$) nhưng khác nhau về số neutron ($N$)",
+            "right": "Các đồng vị của nguyên tố"
+          },
+          {
+            "left": "Khối lượng tương đối của một nguyên tử, xấp xỉ bằng số khối ($A$)",
+            "right": "Nguyên tử khối"
+          },
+          {
+            "left": "Đồng vị Hydrogen nào không chứa neutron trong hạt nhân?",
+            "right": "Protium ($^1_1H$)"
+          },
+          {
+            "left": "Kí hiệu nguyên tử $^A_Z X$ thì chỉ số $A$ đặt ở đâu?",
+            "right": "Phía trên bên trái kí hiệu"
+          },
+          {
+            "left": "Kí hiệu nguyên tử $^A_Z X$ thì chỉ số $Z$ đặt ở đâu?",
+            "right": "Phía dưới bên trái kí hiệu"
+          },
+          {
+            "left": "Công thức tính nguyên tử khối trung bình $\\bar{A}$ của 2 đồng vị $X, Y$",
+            "right": "$\\bar{A} = \\frac{a \\cdot A_X + b \\cdot A_Y}{100}$"
+          },
+          {
+            "left": "Đồng vị Deuterium ($^2_1H$ hay $D$) có chứa bao nhiêu neutron?",
+            "right": "1 neutron"
+          },
+          // Mức độ Thông hiểu
+          {
+            "left": "Các đồng vị của cùng một nguyên tố có tính chất hoá học như thế nào?",
+            "right": "Hầu như giống nhau (do cùng số $e$)"
+          },
+          {
+            "left": "Yếu tố nào quyết định tính chất hoá học cơ bản của một nguyên tố?",
+            "right": "Cấu trúc lớp vỏ electron ($e$ ngoài cùng)"
+          },
+          {
+            "left": "Nhận xét nào đúng về số neutron trong các đồng vị?",
+            "right": "Khác nhau làm số khối $A$ khác nhau"
+          },
+          {
+            "left": "Đồng vị Tritium ($^3_1H$ hay $T$) chứa bao nhiêu proton và neutron?",
+            "right": "1 proton và 2 neutron"
+          },
+          {
+            "left": "Số hiệu nguyên tử $Z$ cho biết những thông tin nào?",
+            "right": "Số $p$, số $e$, điện tích hạt nhân & vị trí"
+          },
+          {
+            "left": "Đơn vị khối lượng nguyên tử chuẩn quốc tế hiện nay là",
+            "right": "amu (atomic mass unit)"
+          },
+          {
+            "left": "Hiện nay loài người đã tìm ra khoảng bao nhiêu nguyên tố hoá học?",
+            "right": "118 nguyên tố"
+          },
+          // Mức độ Vận dụng thấp
+          {
+            "left": "Nguyên tử $^{35}_{17}Cl$ có số proton, neutron, electron lần lượt là",
+            "right": "$p = 17,\\ n = 18,\\ e = 17$"
+          },
+          {
+            "left": "Chlorine có 2 đồng vị $^{35}Cl$ (75%) và $^{37}Cl$ (25%). $\\bar{A}$ của Chlorine là",
+            "right": "$\\bar{A} = \\frac{35 \\times 75 + 37 \\times 25}{100} = 35{,}5$"
+          },
+          {
+            "left": "Kí hiệu $^{39}_{19}K$ cho biết số hạt neutron trong nguyên tử Potassium là",
+            "right": "$N = 39 - 19 = 20$"
+          },
+          {
+            "left": "Copper có 2 đồng vị $^{63}Cu$ và $^{65}Cu$, $\\bar{A} = 63{,}54$. Phần trăm $^{63}Cu$ là",
+            "right": "73%"
+          },
+          {
+            "left": "Nguyên tử $X$ có $Z = 8, A = 17$. Số hạt mang điện nhiều hơn không mang điện là",
+            "right": "7 hạt ($16 - 9 = 7$)"
+          }
+        ]
       },
-      {
-        "left": "Hạt mang điện tích âm, nằm ở lớp vỏ nguyên tử ($e$)",
-        "right": "Electron (điện tích tương đối $-1$)"
+      3: {
+        title: "Bài 3: Cấu trúc lớp vỏ electron nguyên tử",
+        keyword: "VỎ NGUYÊN TỬ",
+        bgUrl: "/electron_shells_lesson3.svg",
+        questions: [
+          // Mức độ Nhận biết
+          {
+            "left": "Khu vực không gian xung quanh hạt nhân có xác suất tìm thấy $e$ lớn nhất (~90%)",
+            "right": "Orbital nguyên tử ($AO$)"
+          },
+          {
+            "left": "Orbital $s$ có dạng hình học gì trong không gian?",
+            "right": "Hình cầu đối xứng tâm"
+          },
+          {
+            "left": "Orbital $p$ có dạng hình học gì trong không gian?",
+            "right": "Hình số 8 nổi ($p_x, p_y, p_z$)"
+          },
+          {
+            "left": "Mỗi orbital nguyên tử ($AO$) chứa tối đa bao nhiêu electron?",
+            "right": "Tối đa 2 electron ($e$ ghép đôi)"
+          },
+          {
+            "left": "Lớp electron thứ $n = 1$ (lớp $K$) chứa tối đa bao nhiêu electron?",
+            "right": "2 electron ($1s^2$)"
+          },
+          {
+            "left": "Lớp electron thứ $n = 2$ (lớp $L$) chứa tối đa bao nhiêu electron?",
+            "right": "8 electron ($2s^2 2p^6$)"
+          },
+          {
+            "left": "Công thức tính số electron tối đa trong lớp thứ $n$ ($n \\le 4$)",
+            "right": "$2n^2$ electron"
+          },
+          {
+            "left": "Các phân lớp electron trong lớp $n = 3$ gồm có",
+            "right": "3 phân lớp ($3s, 3p, 3d$)"
+          },
+          // Mức độ Thông hiểu
+          {
+            "left": "Nguyên lí Pauli phát biểu về điều gì trong nguyên tử?",
+            "right": "Mỗi $AO$ chứa tối đa 2 $e$ tự quay ngược chiều"
+          },
+          {
+            "left": "Nguyên lí vững bền quy định trật tự phân bố electron như thế nào?",
+            "right": "Phân bố vào $AO$ từ mức năng lượng thấp đến cao"
+          },
+          {
+            "left": "Trật tự mức năng lượng từ thấp đến cao theo dãy Klechkowski là",
+            "right": "$1s\\ 2s\\ 2p\\ 3s\\ 3p\\ 4s\\ 3d\\ 4p...$"
+          },
+          {
+            "left": "Quy tắc Hund quy định cách phân bố electron trong cùng phân lớp ra sao?",
+            "right": "Số $e$ độc thân là tối đa và cùng chiều tự quay"
+          },
+          {
+            "left": "Lớp ngoài cùng có tối đa bao nhiêu electron (trừ $He$)?",
+            "right": "8 electron"
+          },
+          {
+            "left": "Số $AO$ trong lớp thứ $n$ ($n \\le 4$) được tính bằng công thức",
+            "right": "$n^2$ orbital"
+          },
+          {
+            "left": "Phân lớp $p$ có tối đa bao nhiêu orbital và bao nhiêu electron?",
+            "right": "3 orbital ($AO$) và tối đa 6 electron"
+          },
+          // Mức độ Vận dụng thấp
+          {
+            "left": "Cấu hình electron của nguyên tử Nitrogen ($Z = 7$) là",
+            "right": "$1s^2 2s^2 2p^3$"
+          },
+          {
+            "left": "Nguyên tử Sodium ($Z = 11$) có cấu hình electron lớp ngoài cùng là",
+            "right": "$3s^1$"
+          },
+          {
+            "left": "Số electron độc thân trong nguyên tử Oxygen ($Z = 8$) là",
+            "right": "2 electron độc thân"
+          },
+          {
+            "left": "Cấu hình electron của nguyên tử Iron ($Z = 26$) là",
+            "right": "$1s^2 2s^2 2p^6 3s^2 3p^6 3d^6 4s^2$"
+          },
+          {
+            "left": "Nguyên tử Chlorine ($Z = 17$) có bao nhiêu phân lớp electron?",
+            "right": "5 phân lớp ($1s, 2s, 2p, 3s, 3p$)"
+          }
+        ]
       },
-      {
-        "left": "Đại lượng bằng tổng số proton ($Z$) và số neutron ($N$)",
-        "right": "Số khối ($A = Z + N$)"
-      },
-      {
-        "left": "Thành phần vô cùng nhỏ bé, tập trung hầu hết khối lượng nguyên tử",
-        "right": "Hạt nhân nguyên tử"
-      },
-      {
-        "left": "Đại lượng đặc trưng của một nguyên tố, bằng số đơn vị điện tích hạt nhân",
-        "right": "Số hiệu nguyên tử ($Z$)"
+      4: {
+        title: "Bài 4: Ôn tập Chương 1",
+        keyword: "TRUNG HÒA ĐIỆN",
+        bgUrl: "/chapter1_review_lesson4.svg",
+        questions: [
+          // Mức độ Nhận biết
+          {
+            "left": "Vì số proton ($p$) bằng số electron ($e$) nên nguyên tử luôn...",
+            "right": "Trung hòa về điện"
+          },
+          {
+            "left": "Bộ phận nào tập trung hầu như toàn bộ khối lượng nguyên tử?",
+            "right": "Hạt nhân nguyên tử"
+          },
+          {
+            "left": "Nguyên tử có 8 electron ở lớp ngoài cùng (trừ $He$) thuộc loại",
+            "right": "Nguyên tố Khí hiếm"
+          },
+          {
+            "left": "Các nguyên tố có 1, 2, 3 electron ở lớp ngoài cùng thường là",
+            "right": "Nguyên tố Kim loại"
+          },
+          {
+            "left": "Các nguyên tố có 5, 6, 7 electron ở lớp ngoài cùng thường là",
+            "right": "Nguyên tố Phi kim"
+          },
+          {
+            "left": "Nguyên tố có 4 electron ở lớp ngoài cùng có thể là",
+            "right": "Kim loại hoặc Phi kim ($C, Si...$)"
+          },
+          {
+            "left": "Electron ở lớp nào liên kết yếu nhất với hạt nhân?",
+            "right": "Lớp ngoài cùng (mức năng lượng cao nhất)"
+          },
+          {
+            "left": "Cấu hình electron nguyên tử biểu diễn điều gì?",
+            "right": "Sự phân bố $e$ trên các lớp và phân lớp"
+          },
+          // Mức độ Thông hiểu
+          {
+            "left": "Tại sao nguyên tử khối xấp xỉ bằng số khối $A$?",
+            "right": "Vì $m_e$ rất nhỏ so với $m_p$ và $m_n$"
+          },
+          {
+            "left": "Mối quan hệ giữa số hiệu $Z$, số proton $p$ và số electron $e$ là",
+            "right": "$Z = p = e$"
+          },
+          {
+            "left": "Thế nào là hai nguyên tử đồng vị của nhau?",
+            "right": "Cùng số $p$ (cùng $Z$), khác số $n$ (khác $A$)"
+          },
+          {
+            "left": "Điểm khác biệt giữa orbital $s$ và orbital $p$ là gì?",
+            "right": "$s$ hình cầu, $p$ hình số 8 nổi 3 định hướng"
+          },
+          {
+            "left": "Trật tự mức năng lượng $4s$ so với $3d$ như thế nào?",
+            "right": "$4s$ có mức năng lượng thấp hơn $3d$"
+          },
+          {
+            "left": "Kí hiệu nguyên tử chứa những chỉ số nào?",
+            "right": "Số khối $A$ (trên) và số hiệu $Z$ (dưới)"
+          },
+          {
+            "left": "Tổng số orbital trong lớp $M$ ($n = 3$) là",
+            "right": "$3^2 = 9$ orbital"
+          },
+          // Mức độ Vận dụng thấp
+          {
+            "left": "Nguyên tử Potassium ($Z = 19$) có số electron lớp ngoài cùng là",
+            "right": "1 electron ($4s^1$ - Kim loại)"
+          },
+          {
+            "left": "Ion $Na^+$ ($Z = 11$) có bao nhiêu electron?",
+            "right": "10 electron ($1s^2 2s^2 2p^6$)"
+          },
+          {
+            "left": "Anion $O^{2-}$ ($Z = 8$) có cấu hình electron là",
+            "right": "$1s^2 2s^2 2p^6$ (giống khí hiếm $Ne$)"
+          },
+          {
+            "left": "Nguyên tử $X$ có tổng số $e$ ở phân lớp $p$ là 11. Số hiệu $Z$ của $X$ là",
+            "right": "$Z = 17$ (Chlorine - $1s^2 2s^2 2p^6 3s^2 3p^5$)"
+          },
+          {
+            "left": "Hợp chất $AB_2$ có tổng số hạt p, n, e là 66. $AB_2$ là",
+            "right": "$CO_2$ ($Z_C = 6, Z_O = 8$)"
+          }
+        ]
       }
-    ];
-
-    const DEFAULT_KEYWORD = "SỰ SỐNG";
-    const DEFAULT_BG_URL = "https://images.unsplash.com/photo-1507668077129-56e32842fceb?q=80&w=1920";
+    };
 
     // Trạng thái game (Game State)
-    let questionsData = JSON.parse(JSON.stringify(DEFAULT_DATA));
-    let secretKeyword = DEFAULT_KEYWORD;
-    let bgImageUrl = DEFAULT_BG_URL;
+    let currentLesson = 1;
+    let lessonData = JSON.parse(JSON.stringify(CHAPTER_LESSONS));
+
+    let questionsData = [];
+    let secretKeyword = "";
+    let bgImageUrl = "";
     
     let cards = [];
     let flippedCards = [];
@@ -417,7 +807,6 @@
 
     /**
      * PHÁT ÂM THANH TRỰC TIẾP QUA WEB AUDIO API SYNTH
-     * Không cần tải file âm thanh bên ngoài
      */
     function playSound(type) {
       if (!soundEnabled) return;
@@ -427,7 +816,6 @@
       const now = ctx.currentTime;
 
       if (type === 'flip') {
-        // Âm bíp ngắn thanh thoát khi lật
         const osc = ctx.createOscillator();
         const gain = ctx.createGain();
         osc.type = 'sine';
@@ -441,7 +829,6 @@
         osc.stop(now + 0.08);
 
       } else if (type === 'match') {
-        // Âm hợp âm arpeggio tươi vui khi ghép đúng
         const freqs = [523.25, 659.25, 783.99, 1046.50]; // C5, E5, G5, C6
         freqs.forEach((freq, idx) => {
           const osc = ctx.createOscillator();
@@ -458,7 +845,6 @@
         });
 
       } else if (type === 'wrong') {
-        // Âm bíp trầm báo sai
         const osc = ctx.createOscillator();
         const gain = ctx.createGain();
         osc.type = 'sawtooth';
@@ -472,7 +858,6 @@
         osc.stop(now + 0.25);
 
       } else if (type === 'victory') {
-        // Âm thanh chúc mừng chiến thắng rực rỡ
         const notes = [
           { f: 523.25, d: 0.12, t: 0 },
           { f: 659.25, d: 0.12, t: 0.12 },
@@ -498,6 +883,40 @@
     }
 
     /**
+     * CHỌN BÀI HỌC (LESSON SWITCHER)
+     */
+    function selectLesson(lessonNum) {
+      currentLesson = lessonNum;
+
+      // Cập nhật style nút lựa chọn
+      for (let i = 1; i <= 4; i++) {
+        const btn = document.getElementById(`btn-lesson-${i}`);
+        if (i === lessonNum) {
+          btn.className = "lesson-btn px-3 py-1.5 rounded-xl text-xs sm:text-sm font-bold transition-all border border-cyan-500/40 bg-gradient-to-r from-cyan-600 to-teal-600 text-white shadow-lg shadow-cyan-500/20 flex items-center gap-1.5 active:scale-95";
+        } else {
+          btn.className = "lesson-btn px-3 py-1.5 rounded-xl text-xs sm:text-sm font-bold transition-all border border-slate-700 bg-slate-800/80 text-slate-300 hover:text-white hover:bg-slate-700 flex items-center gap-1.5 active:scale-95";
+        }
+      }
+
+      // Cập nhật tiêu đề bài học
+      const lessonInfo = lessonData[lessonNum];
+      document.getElementById('lesson-badge').innerText = lessonInfo.title;
+      document.getElementById('current-lesson-num').innerText = lessonNum;
+      document.getElementById('settings-lesson-label').innerText = lessonNum;
+
+      // Load câu hỏi & từ khóa bài đã chọn
+      secretKeyword = lessonInfo.keyword;
+      bgImageUrl = lessonInfo.bgUrl;
+
+      // Reset ô nhập từ khóa
+      document.getElementById('guess-input').value = '';
+
+      // Khởi tạo game
+      initGame();
+      showToast(`Đã chuyển sang ${lessonInfo.title}`);
+    }
+
+    /**
      * KHỞI TẠO VÀ XÁO TRỘN BÀI (FISHER-YATES SHUFFLE)
      */
     function initGame() {
@@ -508,12 +927,26 @@
       isLocked = false;
       gameEnded = false;
 
+      // Cập nhật thông tin bài học hiện tại & rút ngẫu nhiên 6 câu từ ngân hàng 20 câu
+      const lessonInfo = lessonData[currentLesson];
+      secretKeyword = lessonInfo.keyword;
+      if (lessonInfo.bgUrl) bgImageUrl = lessonInfo.bgUrl;
+
+      // Trộn ngẫu nhiên ngân hàng câu hỏi của bài và lấy 6 cặp cho lượt chơi mới
+      const bank = lessonInfo.questions || [];
+      let shuffledBank = [...bank];
+      for (let i = shuffledBank.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [shuffledBank[i], shuffledBank[j]] = [shuffledBank[j], shuffledBank[i]];
+      }
+      questionsData = shuffledBank.slice(0, 6);
+
       // Cập nhật ảnh nền
       document.getElementById('atomic-bg').style.backgroundImage = `url('${bgImageUrl}')`;
 
       // Tạo mảng 12 thẻ (6 thẻ trái, 6 thẻ phải)
       let cardList = [];
-      const numPairs = Math.min(6, questionsData.length);
+      const numPairs = questionsData.length;
 
       for (let i = 0; i < numPairs; i++) {
         cardList.push({
@@ -583,7 +1016,7 @@
         const frontEl = document.createElement('div');
         frontEl.className = 'absolute inset-0 backface-hidden rounded-xl card-front-design flex items-center justify-center transition-all';
         frontEl.innerHTML = `
-          <span class="card-number-text text-3xl sm:text-4xl md:text-5xl font-extrabold select-none">
+          <span class="card-number-text text-2xl xs:text-3xl sm:text-4xl md:text-5xl font-extrabold select-none">
             ${card.displayNumber}
           </span>
         `;
@@ -591,8 +1024,8 @@
         // Mặt Ngửa (Card Back Glassmorphism)
         const backEl = document.createElement('div');
         backEl.id = `card-back-${index}`;
-        backEl.className = 'absolute inset-0 backface-hidden rotate-y-180 rounded-xl card-back-glass flex items-center justify-center p-2.5 sm:p-3 text-center text-xs sm:text-sm md:text-base font-semibold text-slate-100 leading-snug overflow-hidden select-text';
-        backEl.innerHTML = `<div>${card.text}</div>`;
+        backEl.className = 'absolute inset-0 backface-hidden rotate-y-180 rounded-xl card-back-glass flex items-center justify-center p-1.5 xs:p-2 sm:p-3 text-center text-[10px] xs:text-xs sm:text-sm md:text-base font-semibold text-slate-100 leading-tight sm:leading-snug overflow-y-auto select-text';
+        backEl.innerHTML = `<div class="my-auto w-full">${card.text}</div>`;
 
         innerEl.appendChild(frontEl);
         innerEl.appendChild(backEl);
@@ -695,7 +1128,7 @@
 
             flippedCards = [];
             isLocked = false;
-          }, 2500); // Giữ nguyên đúng 2.5 giây theo yêu cầu đề bài
+          }, 2500); // Giữ nguyên đúng 2.5 giây
         }
       }
     }
@@ -727,17 +1160,17 @@
         if (ch === ' ') {
           // Khoảng trắng giữa các từ
           const spaceEl = document.createElement('div');
-          spaceEl.className = 'w-4 sm:w-6';
+          spaceEl.className = 'w-2 xs:w-3 sm:w-6';
           container.appendChild(spaceEl);
         } else {
           const slotEl = document.createElement('div');
           const isRevealed = revealedLetters[idx];
 
           if (isRevealed) {
-            slotEl.className = 'w-7 h-9 sm:w-9 sm:h-11 rounded-lg bg-gradient-to-b from-emerald-500 to-teal-700 text-white font-extrabold text-sm sm:text-lg flex items-center justify-center border border-emerald-300 shadow-[0_0_12px_rgba(16,185,129,0.5)] uppercase transition-all duration-500 transform scale-105';
+            slotEl.className = 'w-6 h-8 xs:w-7 xs:h-9 sm:w-9 sm:h-11 rounded-lg bg-gradient-to-b from-emerald-500 to-teal-700 text-white font-extrabold text-xs xs:text-sm sm:text-lg flex items-center justify-center border border-emerald-300 shadow-[0_0_12px_rgba(16,185,129,0.5)] uppercase transition-all duration-500 transform scale-105';
             slotEl.innerText = ch;
           } else {
-            slotEl.className = 'w-7 h-9 sm:w-9 sm:h-11 rounded-lg bg-slate-800/90 border border-slate-700 text-slate-500 font-bold text-xs sm:text-sm flex items-center justify-center shadow-inner';
+            slotEl.className = 'w-6 h-8 xs:w-7 xs:h-9 sm:w-9 sm:h-11 rounded-lg bg-slate-800/90 border border-slate-700 text-slate-500 font-bold text-[10px] xs:text-xs sm:text-sm flex items-center justify-center shadow-inner';
             slotEl.innerText = '?';
           }
           container.appendChild(slotEl);
@@ -782,7 +1215,7 @@
     function triggerVictory(guessCorrect = false) {
       gameEnded = true;
 
-      // 1. Toàn bộ 12 ô ngay lập tức biến mất để lộ hoàn toàn bức ảnh nguyên tử
+      // 1. Toàn bộ 12 ô ngay lập tức biến mất để lộ hoàn toàn bức ảnh bí ẩn
       cards.forEach(c => {
         c.isMatched = true;
       });
@@ -803,7 +1236,7 @@
       // 5. Kích hoạt pháo hoa rực rỡ
       startFireworks();
 
-      showToast("🏆 BẠN ĐÃ GIẢI MÃ THÀNH CÔNG BỨC ẢNH NGUYÊN TỬ!", "success");
+      showToast(`🏆 GIẢI MÃ THÀNH CÔNG TỪ KHÓA BÀI ${currentLesson}: "${secretKeyword}"!`, "success");
     }
 
     /**
@@ -870,10 +1303,10 @@
       document.getElementById('settings-backdrop').classList.remove('hidden');
       document.getElementById('settings-panel').classList.remove('translate-x-full');
 
-      // Điền sẵn dữ liệu vào form cài đặt
+      // Điền dữ liệu ngân hàng câu hỏi đầy đủ của bài hiện tại vào form cài đặt
       document.getElementById('setting-keyword').value = secretKeyword;
       document.getElementById('setting-bg-url').value = bgImageUrl;
-      document.getElementById('setting-json').value = JSON.stringify(questionsData, null, 2);
+      document.getElementById('setting-json').value = JSON.stringify(lessonData[currentLesson].questions || questionsData, null, 2);
     }
 
     function closeSettings() {
@@ -897,13 +1330,18 @@
           throw new Error("Mảng JSON phải chứa ít nhất 1 cặp câu hỏi.");
         }
 
+        // Lưu vào bài hiện tại
+        lessonData[currentLesson].questions = parsedJSON;
+        lessonData[currentLesson].keyword = newKeyword;
+        if (newBgUrl) lessonData[currentLesson].bgUrl = newBgUrl;
+
         questionsData = parsedJSON;
         secretKeyword = newKeyword;
         if (newBgUrl) bgImageUrl = newBgUrl;
 
         closeSettings();
         initGame();
-        showToast("Cập nhật cài đặt thành công!", "success");
+        showToast(`Cập nhật cài đặt cho Bài ${currentLesson} thành công!`, "success");
 
       } catch (err) {
         showToast("Lỗi định dạng JSON! Vui lòng kiểm tra lại cấu trúc dữ liệu.", "error");
@@ -911,9 +1349,12 @@
     }
 
     function restoreDefaults() {
-      questionsData = JSON.parse(JSON.stringify(DEFAULT_DATA));
-      secretKeyword = DEFAULT_KEYWORD;
-      bgImageUrl = DEFAULT_BG_URL;
+      lessonData = JSON.parse(JSON.stringify(CHAPTER_LESSONS));
+      
+      const lessonInfo = lessonData[currentLesson];
+      questionsData = lessonInfo.questions;
+      secretKeyword = lessonInfo.keyword;
+      bgImageUrl = lessonInfo.bgUrl;
 
       document.getElementById('setting-keyword').value = secretKeyword;
       document.getElementById('setting-bg-url').value = bgImageUrl;
@@ -921,7 +1362,7 @@
 
       closeSettings();
       initGame();
-      showToast("Đã khôi phục cài đặt mặc định!", "success");
+      showToast("Đã khôi phục tất cả bài về mặc định!", "success");
     }
 
     function restartGame() {
@@ -1026,9 +1467,9 @@
       }, 3000);
     }
 
-    // Khởi tạo game khi trang tải hoàn tất
+    // Khởi tạo Bài 1 mặc định khi trang tải hoàn tất
     window.onload = () => {
-      initGame();
+      selectLesson(1);
     };
   </script>
 

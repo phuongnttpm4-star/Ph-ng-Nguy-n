@@ -1,0 +1,117 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" width="1200" height="675">
+  <defs>
+    <!-- Background Gradient -->
+    <radialGradient id="bgGrad" cx="50%" cy="40%" r="60%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="60%" stop-color="#f0f7ff"/>
+      <stop offset="100%" stop-color="#e2f0fe"/>
+    </radialGradient>
+
+    <!-- Nucleus Red Gradient -->
+    <radialGradient id="nucleusGrad" cx="35%" cy="35%" r="65%">
+      <stop offset="0%" stop-color="#ff7b62"/>
+      <stop offset="60%" stop-color="#ea3829"/>
+      <stop offset="100%" stop-color="#b91c1c"/>
+    </radialGradient>
+
+    <!-- Blue Shell Gradient Fill -->
+    <linearGradient id="shellFillGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#0284c7" stop-opacity="0.35"/>
+      <stop offset="30%" stop-color="#38bdf8" stop-opacity="0.25"/>
+      <stop offset="70%" stop-color="#7dd3fc" stop-opacity="0.15"/>
+      <stop offset="100%" stop-color="#bae6fd" stop-opacity="0.05"/>
+    </linearGradient>
+
+    <!-- Shell Glow Filter -->
+    <filter id="glow" x="-10%" y="-10%" width="120%" height="120%">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background Canvas -->
+  <rect width="1200" height="675" fill="url(#bgGrad)"/>
+
+  <!-- Subtle Textbook Watermark Arc at Bottom Right -->
+  <g opacity="0.12" transform="translate(650, 220)">
+    <circle cx="250" cy="250" r="220" fill="none" stroke="#0284c7" stroke-width="30"/>
+    <circle cx="250" cy="250" r="180" fill="none" stroke="#0284c7" stroke-width="15"/>
+    <path d="M 50,250 L 450,250 M 250,50 L 250,450" stroke="#0284c7" stroke-width="10"/>
+  </g>
+
+  <!-- Concentric Blue Shells (Outermost to Innermost for correct layered fills) -->
+  <!-- CX = 600, CY = 280 -->
+
+  <!-- Outer Blue Shading Band -->
+  <ellipse cx="600" cy="280" rx="530" ry="202" fill="url(#shellFillGrad)"/>
+
+  <!-- Layer 7 (Q) -->
+  <ellipse cx="600" cy="280" rx="530" ry="202" fill="none" stroke="#0284c7" stroke-width="2.5"/>
+  
+  <!-- Layer 6 (P) -->
+  <ellipse cx="600" cy="280" rx="455" ry="173" fill="none" stroke="#0284c7" stroke-width="2.2"/>
+
+  <!-- Layer 5 (O) -->
+  <ellipse cx="600" cy="280" rx="380" ry="144" fill="none" stroke="#0369a1" stroke-width="2.2"/>
+
+  <!-- Layer 4 (N) -->
+  <ellipse cx="600" cy="280" rx="305" ry="116" fill="none" stroke="#0369a1" stroke-width="2.2"/>
+
+  <!-- Layer 3 (M) -->
+  <ellipse cx="600" cy="280" rx="230" ry="87" fill="none" stroke="#075985" stroke-width="2.2"/>
+
+  <!-- Layer 2 (L) -->
+  <ellipse cx="600" cy="280" rx="155" ry="59" fill="none" stroke="#075985" stroke-width="2.2"/>
+
+  <!-- Layer 1 (K) -->
+  <ellipse cx="600" cy="280" rx="80" ry="30" fill="none" stroke="#0c4a6e" stroke-width="2.5"/>
+
+  <!-- Nucleus (+ Red Ball) at Center -->
+  <g transform="translate(600, 260)">
+    <!-- Red Sphere -->
+    <circle cx="0" cy="0" r="22" fill="url(#nucleusGrad)" filter="url(#glow)"/>
+    <circle cx="0" cy="0" r="22" fill="none" stroke="#991b1b" stroke-width="1.5"/>
+    <!-- Plus Sign (+) -->
+    <path d="M -9,0 L 9,0 M 0,-9 L 0,9" stroke="#ffffff" stroke-width="3.5" stroke-linecap="round"/>
+  </g>
+
+  <!-- Shell Labels (Centered Vertical Column below nucleus) -->
+  <g font-family="'Plus Jakarta Sans', Arial, sans-serif" font-size="16" font-weight="600" fill="#0f172a" text-anchor="middle">
+    <!-- Lớp 1 (lớp K) -->
+    <text x="600" y="297">Lớp 1 <tspan font-size="14" fill="#475569">(lớp K)</tspan></text>
+    
+    <!-- Lớp 2 (lớp L) -->
+    <text x="600" y="327">Lớp 2 <tspan font-size="14" fill="#475569">(lớp L)</tspan></text>
+    
+    <!-- Lớp 3 (lớp M) -->
+    <text x="600" y="356">Lớp 3 <tspan font-size="14" fill="#475569">(lớp M)</tspan></text>
+
+    <!-- Lớp 4 (lớp N) -->
+    <text x="600" y="385">Lớp 4 <tspan font-size="14" fill="#475569">(lớp N)</tspan></text>
+
+    <!-- Lớp 5 (lớp O) -->
+    <text x="600" y="413">Lớp 5 <tspan font-size="14" fill="#475569">(lớp O)</tspan></text>
+
+    <!-- Lớp 6 (lớp P) -->
+    <text x="600" y="442">Lớp 6 <tspan font-size="14" fill="#475569">(lớp P)</tspan></text>
+
+    <!-- Lớp 7 (lớp Q) -->
+    <text x="600" y="471">Lớp 7 <tspan font-size="14" fill="#475569">(lớp Q)</tspan></text>
+  </g>
+
+  <!-- Bottom Divider Line -->
+  <line x1="40" y1="585" x2="1160" y2="585" stroke="#cbd5e1" stroke-width="1.5"/>
+
+  <!-- Caption at Bottom Left -->
+  <g transform="translate(180, 622)">
+    <!-- Orange Triangle -->
+    <polygon points="0,-14 14,0 0,0" fill="#ea580c"/>
+    <!-- Caption Text -->
+    <text x="24" y="-1" font-family="'Plus Jakarta Sans', Arial, sans-serif" font-size="21" font-weight="800" fill="#0f172a">
+      Hình 4.5. <tspan font-weight="700" fill="#1e293b">Minh họa các lớp electron ở vỏ nguyên tử</tspan>
+    </text>
+  </g>
+</svg>
