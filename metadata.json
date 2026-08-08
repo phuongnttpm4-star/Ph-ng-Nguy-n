@@ -1,0 +1,6 @@
+{
+  "name": "TRÒ CHƠI LẬT HÌNH TRÚC XANH - THÀNH PHẦN NGUYÊN TỬ",
+  "description": "Trò chơi lật hình Trúc Xanh tương tác học môn Hóa học 10 chủ đề Thành phần Nguyên tử với MathJax, âm thanh Web Audio API, và hiệu ứng pháo hoa.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

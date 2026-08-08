@@ -1,0 +1,1036 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TRÒ CHƠI LẬT HÌNH TRÚC XANH - THÀNH PHẦN NGUYÊN TỬ</title>
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            navy: {
+              800: '#0a192f',
+              900: '#020c1b',
+              950: '#010610',
+            }
+          },
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            serif: ['"Playfair Display"', 'serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- MathJax Configuration & CDN -->
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']]
+      },
+      svg: {
+        fontCache: 'global'
+      },
+      options: {
+        enableMenu: false
+      }
+    };
+  </script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+  <style>
+    /* CSS 3D Perspective & Flip Animations */
+    .perspective-1000 {
+      perspective: 1000px;
+    }
+    .transform-style-3d {
+      transform-style: preserve-3d;
+      -webkit-transform-style: preserve-3d;
+    }
+    .backface-hidden {
+      backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
+    }
+    .rotate-y-180 {
+      transform: rotateY(180deg);
+      -webkit-transform: rotateY(180deg);
+    }
+
+    /* Card Front Design: Traditional Trúc Xanh green gradient with golden highlights & bevel */
+    .card-front-design {
+      background: linear-gradient(135deg, #4ade80 0%, #22c55e 50%, #15803d 100%);
+      border: 2px solid #881337;
+      box-shadow: 
+        inset 0 2px 4px rgba(254, 240, 138, 0.8),
+        inset 0 -3px 6px rgba(15, 23, 42, 0.6),
+        0 6px 12px rgba(0, 0, 0, 0.4);
+    }
+
+    /* Card Number Typography */
+    .card-number-text {
+      color: #881337;
+      text-shadow: 
+        0 2px 0 rgba(255, 255, 255, 0.8),
+        0 -1px 0 rgba(0, 0, 0, 0.3),
+        0 4px 10px rgba(0, 0, 0, 0.4);
+      font-family: 'Playfair Display', Georgia, serif;
+    }
+
+    /* Card Back Glassmorphism Style */
+    .card-back-glass {
+      background: rgba(10, 25, 47, 0.88);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1.5px solid rgba(56, 189, 248, 0.35);
+      box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
+    }
+
+    /* Shake Error Animation */
+    @keyframes shakeError {
+      0%, 100% { transform: rotateY(180deg) translateX(0); }
+      20%, 60% { transform: rotateY(180deg) translateX(-8px); }
+      40%, 80% { transform: rotateY(180deg) translateX(8px); }
+    }
+    .animate-shake {
+      animation: shakeError 0.4s ease-in-out;
+      border-color: #ef4444 !important;
+      box-shadow: 0 0 25px rgba(239, 68, 68, 0.9) !important;
+    }
+
+    /* Green Glow Success Animation */
+    @keyframes glowSuccess {
+      0%, 100% { box-shadow: 0 0 10px rgba(34, 197, 94, 0.5); }
+      50% { box-shadow: 0 0 30px rgba(34, 197, 94, 1); border-color: #4ade80 !important; }
+    }
+    .animate-success-glow {
+      animation: glowSuccess 0.8s ease-in-out;
+    }
+
+    /* Card Disappear when matched */
+    .card-matched-hidden {
+      opacity: 0 !important;
+      pointer-events: none !important;
+      transform: scale(0.92);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    /* Custom Scrollbar for Settings Sidebar */
+    ::-webkit-scrollbar {
+      width: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: rgba(15, 23, 42, 0.6);
+    }
+    ::-webkit-scrollbar-thumb {
+      background: rgba(56, 189, 248, 0.3);
+      border-radius: 3px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: rgba(56, 189, 248, 0.6);
+    }
+  </style>
+</head>
+
+<body class="bg-slate-950 text-slate-100 font-sans antialiased min-h-screen flex flex-col justify-between overflow-x-hidden selection:bg-cyan-500 selection:text-slate-950">
+
+  <!-- ==================== HEADER ==================== -->
+  <header class="w-full bg-slate-900/80 backdrop-blur-md border-b border-white/10 px-4 py-3 sticky top-0 z-30 shadow-lg">
+    <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-2 sm:gap-0">
+      
+      <!-- Left Title -->
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-cyan-600 via-teal-500 to-emerald-400 p-0.5 shadow-md flex items-center justify-center">
+          <div class="w-full h-full bg-slate-950 rounded-[10px] flex items-center justify-center">
+            <span class="text-xl">⚛️</span>
+          </div>
+        </div>
+        <div>
+          <h1 class="text-lg sm:text-xl font-extrabold tracking-wide bg-gradient-to-r from-cyan-300 via-teal-200 to-emerald-300 bg-clip-text text-transparent">
+            TRÚC XANH HÓA HỌC 10 - THÀNH PHẦN NGUYÊN TỬ
+          </h1>
+          <p class="text-xs text-slate-400 font-medium">Trò chơi lật hình tương tác &amp; Khám phá hình nền bí ẩn</p>
+        </div>
+      </div>
+
+      <!-- Right Action Buttons -->
+      <div class="flex items-center gap-3">
+        <button id="btn-fullscreen" onclick="toggleFullscreen()" class="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 border border-slate-700 text-xs sm:text-sm font-semibold flex items-center gap-1.5 transition-all shadow hover:shadow-cyan-500/20 active:scale-95">
+          <span>🖥️</span>
+          <span>Toàn màn hình</span>
+        </button>
+        <button id="btn-settings" onclick="openSettings()" class="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 border border-slate-700 text-xs sm:text-sm font-semibold flex items-center gap-1.5 transition-all shadow hover:shadow-cyan-500/20 active:scale-95">
+          <span>⚙️</span>
+          <span>Cài đặt</span>
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+
+  <!-- ==================== MAIN CONTAINER (16:9 RATIO FRAME) ==================== -->
+  <main class="flex-1 flex items-center justify-center p-2 sm:p-4 my-auto">
+    
+    <div class="w-full max-w-5xl aspect-video relative rounded-2xl overflow-hidden border border-cyan-500/20 bg-slate-900/90 shadow-[0_0_50px_rgba(2,132,199,0.15)] flex flex-col justify-between p-2 sm:p-4">
+      
+      <!-- Secret Background Image Layer -->
+      <div id="atomic-bg" class="absolute inset-0 bg-cover bg-center transition-all duration-700" style="background-image: url('https://images.unsplash.com/photo-1507668077129-56e32842fceb?q=80&w=1920');"></div>
+      <div class="absolute inset-0 bg-slate-950/20 pointer-events-none"></div>
+
+      <!-- 4x3 Grid for 12 Cards -->
+      <div id="card-grid" class="relative z-10 grid grid-cols-4 grid-rows-3 gap-2 sm:gap-3 md:gap-4 w-full h-full">
+        <!-- 12 Cards injected dynamically via JS -->
+      </div>
+
+    </div>
+
+  </main>
+
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="w-full bg-slate-900/90 backdrop-blur-md border-t border-white/10 p-3 sm:p-4 z-20 shadow-2xl">
+    <div class="max-w-5xl mx-auto flex flex-col gap-3">
+      
+      <!-- Progress Bar & Score Line -->
+      <div class="flex items-center justify-between text-xs sm:text-sm font-bold text-slate-300">
+        <div class="flex items-center gap-2">
+          <span>Tiến trình:</span>
+          <span id="progress-text" class="text-emerald-400">0 / 6 cặp</span>
+        </div>
+        <div class="w-1/3 bg-slate-800 rounded-full h-2.5 overflow-hidden border border-slate-700">
+          <div id="progress-bar" class="bg-gradient-to-r from-teal-500 to-emerald-400 h-full w-0 transition-all duration-500"></div>
+        </div>
+        <div class="flex items-center gap-4">
+          <div>Lượt lật: <span id="moves-count" class="text-cyan-400">0</span></div>
+          <div>Điểm: <span id="score-text" class="text-amber-400">0</span></div>
+        </div>
+      </div>
+
+      <!-- Secret Keyword Display Bar -->
+      <div class="flex flex-col items-center gap-1.5 bg-slate-950/60 p-2 sm:p-3 rounded-xl border border-white/5">
+        <div class="text-xs uppercase font-bold tracking-wider text-slate-400 flex items-center gap-1">
+          <span>🔑</span>
+          <span>TỪ KHÓA BÍ MẬT (MỞ TỪNG Ô CHỮ KHI LẬT ĐÚNG):</span>
+        </div>
+        <div id="keyword-slots" class="flex flex-wrap items-center justify-center gap-1.5 sm:gap-2">
+          <!-- Keyword letter boxes rendered dynamically -->
+        </div>
+      </div>
+
+      <!-- Answer TextBox & Guess Button -->
+      <div class="flex items-center justify-center gap-2 max-w-xl mx-auto w-full">
+        <input 
+          type="text" 
+          id="guess-input" 
+          placeholder="Nhập câu trả lời từ khóa bí mật..." 
+          class="flex-1 bg-slate-950/80 border border-slate-700 focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400 rounded-xl px-4 py-2 text-xs sm:text-sm text-white placeholder-slate-500 outline-none transition-all shadow-inner"
+          onkeydown="if(event.key === 'Enter') guessKeyword()"
+        />
+        <button 
+          onclick="guessKeyword()" 
+          class="bg-gradient-to-r from-cyan-600 to-teal-600 hover:from-cyan-500 hover:to-teal-500 text-white font-bold px-4 py-2 rounded-xl text-xs sm:text-sm transition-all shadow-lg shadow-cyan-600/20 active:scale-95 flex items-center gap-1.5 whitespace-nowrap"
+        >
+          <span>🎯</span>
+          <span>Đoán ô chữ bí mật</span>
+        </button>
+      </div>
+
+    </div>
+  </footer>
+
+
+  <!-- ==================== SETTINGS SIDE PANEL ==================== -->
+  <div id="settings-backdrop" onclick="closeSettings()" class="fixed inset-0 bg-slate-950/70 backdrop-blur-sm z-40 hidden transition-opacity"></div>
+  
+  <aside id="settings-panel" class="fixed top-0 right-0 h-full w-80 sm:w-96 bg-slate-900/95 text-slate-100 backdrop-blur-2xl border-l border-white/10 z-50 transform transition-transform duration-300 translate-x-full p-5 flex flex-col justify-between overflow-y-auto shadow-2xl">
+    
+    <div class="flex flex-col gap-5">
+      <!-- Panel Header -->
+      <div class="flex items-center justify-between border-b border-slate-800 pb-3">
+        <h2 class="text-base sm:text-lg font-bold flex items-center gap-2 text-cyan-300">
+          <span>⚙️</span>
+          <span>CÀI ĐẶT TRÒ CHƠI</span>
+        </h2>
+        <button onclick="closeSettings()" class="text-slate-400 hover:text-white p-1 rounded-lg hover:bg-slate-800 text-lg transition-colors">✕</button>
+      </div>
+
+      <!-- Quick Action Controls -->
+      <div class="flex flex-col gap-3">
+        <button onclick="restartGame()" class="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-bold py-2.5 px-4 rounded-xl text-sm transition-all shadow-lg shadow-emerald-600/20 flex items-center justify-center gap-2 active:scale-95">
+          <span>🔄</span>
+          <span>Chơi lại từ đầu</span>
+        </button>
+
+        <button id="btn-toggle-sound" onclick="toggleSound()" class="w-full bg-slate-800 hover:bg-slate-700 border border-slate-700 text-white font-semibold py-2 px-4 rounded-xl text-sm transition-all flex items-center justify-between active:scale-95">
+          <span class="flex items-center gap-2">
+            <span id="sound-icon">🔊</span>
+            <span>Âm thanh trò chơi</span>
+          </span>
+          <span id="sound-status" class="text-xs font-bold px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-400">BẬT</span>
+        </button>
+      </div>
+
+      <!-- Custom Settings Inputs -->
+      <div class="flex flex-col gap-4 border-t border-slate-800 pt-4">
+        
+        <!-- Secret Keyword Field -->
+        <div class="flex flex-col gap-1.5">
+          <label class="text-xs font-bold text-slate-300 flex items-center gap-1">
+            <span>🔑</span>
+            <span>Từ khóa bí mật:</span>
+          </label>
+          <input 
+            type="text" 
+            id="setting-keyword" 
+            value="SỰ SỐNG" 
+            class="bg-slate-950 border border-slate-700 focus:border-cyan-400 rounded-lg px-3 py-2 text-sm text-white outline-none"
+          />
+        </div>
+
+        <!-- Secret Image URL Field -->
+        <div class="flex flex-col gap-1.5">
+          <label class="text-xs font-bold text-slate-300 flex items-center gap-1">
+            <span>🖼️</span>
+            <span>Link ảnh nền bí ẩn (Image URL):</span>
+          </label>
+          <input 
+            type="text" 
+            id="setting-bg-url" 
+            value="https://images.unsplash.com/photo-1507668077129-56e32842fceb?q=80&w=1920" 
+            class="bg-slate-950 border border-slate-700 focus:border-cyan-400 rounded-lg px-3 py-2 text-xs text-white outline-none font-mono"
+          />
+        </div>
+
+        <!-- Questions JSON Textarea -->
+        <div class="flex flex-col gap-1.5">
+          <label class="text-xs font-bold text-slate-300 flex items-center gap-1">
+            <span>📝</span>
+            <span>Dữ liệu câu hỏi (Mảng JSON):</span>
+          </label>
+          <textarea 
+            id="setting-json" 
+            rows="8" 
+            class="bg-slate-950 border border-slate-700 focus:border-cyan-400 rounded-lg p-2.5 text-xs text-cyan-200 font-mono outline-none resize-none leading-relaxed"
+          ></textarea>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Panel Footer Buttons -->
+    <div class="flex flex-col gap-2 pt-4 border-t border-slate-800">
+      <button onclick="saveSettings()" class="w-full bg-cyan-600 hover:bg-cyan-500 text-white font-bold py-2.5 px-4 rounded-xl text-sm transition-all shadow-lg shadow-cyan-600/20 active:scale-95">
+        Lưu &amp; Áp dụng
+      </button>
+      <button onclick="restoreDefaults()" class="w-full bg-slate-800 hover:bg-slate-700 text-slate-400 hover:text-white font-medium py-2 px-4 rounded-xl text-xs transition-colors">
+        Khôi phục mặc định
+      </button>
+    </div>
+
+  </aside>
+
+
+  <!-- ==================== FIREWORKS CANVAS ==================== -->
+  <canvas id="fireworks-canvas" class="fixed inset-0 pointer-events-none z-50 hidden"></canvas>
+
+  <!-- ==================== TOAST CONTAINER ==================== -->
+  <div id="toast-container" class="fixed bottom-20 left-1/2 -translate-x-1/2 z-50 flex flex-col gap-2 pointer-events-none"></div>
+
+
+  <!-- ==================== GAME JAVASCRIPT LOGIC ==================== -->
+  <script>
+    /**
+     * MẶC ĐỊNH DỮ LIỆU CÂU HỎI TRÚC XANH HÓA HỌC 10
+     * Bắt buộc dùng mảng 6 cặp này theo đúng yêu cầu đề bài
+     */
+    const DEFAULT_DATA = [
+      {
+        "left": "Hạt mang điện tích dương, nằm trong hạt nhân nguyên tử ($p$)",
+        "right": "Proton (điện tích tương đối $+1$)"
+      },
+      {
+        "left": "Hạt không mang điện, nằm trong hạt nhân nguyên tử ($n$)",
+        "right": "Neutron (điện tích tương đối $0$)"
+      },
+      {
+        "left": "Hạt mang điện tích âm, nằm ở lớp vỏ nguyên tử ($e$)",
+        "right": "Electron (điện tích tương đối $-1$)"
+      },
+      {
+        "left": "Đại lượng bằng tổng số proton ($Z$) và số neutron ($N$)",
+        "right": "Số khối ($A = Z + N$)"
+      },
+      {
+        "left": "Thành phần vô cùng nhỏ bé, tập trung hầu hết khối lượng nguyên tử",
+        "right": "Hạt nhân nguyên tử"
+      },
+      {
+        "left": "Đại lượng đặc trưng của một nguyên tố, bằng số đơn vị điện tích hạt nhân",
+        "right": "Số hiệu nguyên tử ($Z$)"
+      }
+    ];
+
+    const DEFAULT_KEYWORD = "SỰ SỐNG";
+    const DEFAULT_BG_URL = "https://images.unsplash.com/photo-1507668077129-56e32842fceb?q=80&w=1920";
+
+    // Trạng thái game (Game State)
+    let questionsData = JSON.parse(JSON.stringify(DEFAULT_DATA));
+    let secretKeyword = DEFAULT_KEYWORD;
+    let bgImageUrl = DEFAULT_BG_URL;
+    
+    let cards = [];
+    let flippedCards = [];
+    let matchedPairsCount = 0;
+    let movesCount = 0;
+    let score = 0;
+    let isLocked = false;
+    let soundEnabled = true;
+    let gameEnded = false;
+    let revealedLetters = [];
+
+    // Web Audio API Context
+    let audioCtx = null;
+
+    function getAudioContext() {
+      if (!audioCtx) {
+        const AudioContextClass = window.AudioContext || window.webkitAudioContext;
+        if (AudioContextClass) {
+          audioCtx = new AudioContextClass();
+        }
+      }
+      if (audioCtx && audioCtx.state === 'suspended') {
+        audioCtx.resume();
+      }
+      return audioCtx;
+    }
+
+    /**
+     * PHÁT ÂM THANH TRỰC TIẾP QUA WEB AUDIO API SYNTH
+     * Không cần tải file âm thanh bên ngoài
+     */
+    function playSound(type) {
+      if (!soundEnabled) return;
+      const ctx = getAudioContext();
+      if (!ctx) return;
+
+      const now = ctx.currentTime;
+
+      if (type === 'flip') {
+        // Âm bíp ngắn thanh thoát khi lật
+        const osc = ctx.createOscillator();
+        const gain = ctx.createGain();
+        osc.type = 'sine';
+        osc.frequency.setValueAtTime(450, now);
+        osc.frequency.exponentialRampToValueAtTime(850, now + 0.08);
+        gain.gain.setValueAtTime(0.15, now);
+        gain.gain.exponentialRampToValueAtTime(0.01, now + 0.08);
+        osc.connect(gain);
+        gain.connect(ctx.destination);
+        osc.start(now);
+        osc.stop(now + 0.08);
+
+      } else if (type === 'match') {
+        // Âm hợp âm arpeggio tươi vui khi ghép đúng
+        const freqs = [523.25, 659.25, 783.99, 1046.50]; // C5, E5, G5, C6
+        freqs.forEach((freq, idx) => {
+          const osc = ctx.createOscillator();
+          const gain = ctx.createGain();
+          const startTime = now + idx * 0.08;
+          osc.type = 'triangle';
+          osc.frequency.setValueAtTime(freq, startTime);
+          gain.gain.setValueAtTime(0.2, startTime);
+          gain.gain.exponentialRampToValueAtTime(0.001, startTime + 0.35);
+          osc.connect(gain);
+          gain.connect(ctx.destination);
+          osc.start(startTime);
+          osc.stop(startTime + 0.35);
+        });
+
+      } else if (type === 'wrong') {
+        // Âm bíp trầm báo sai
+        const osc = ctx.createOscillator();
+        const gain = ctx.createGain();
+        osc.type = 'sawtooth';
+        osc.frequency.setValueAtTime(160, now);
+        osc.frequency.linearRampToValueAtTime(110, now + 0.25);
+        gain.gain.setValueAtTime(0.18, now);
+        gain.gain.exponentialRampToValueAtTime(0.01, now + 0.25);
+        osc.connect(gain);
+        gain.connect(ctx.destination);
+        osc.start(now);
+        osc.stop(now + 0.25);
+
+      } else if (type === 'victory') {
+        // Âm thanh chúc mừng chiến thắng rực rỡ
+        const notes = [
+          { f: 523.25, d: 0.12, t: 0 },
+          { f: 659.25, d: 0.12, t: 0.12 },
+          { f: 783.99, d: 0.12, t: 0.24 },
+          { f: 1046.50, d: 0.4, t: 0.36 },
+          { f: 880.00, d: 0.15, t: 0.8 },
+          { f: 1046.50, d: 0.6, t: 0.98 }
+        ];
+        notes.forEach(note => {
+          const osc = ctx.createOscillator();
+          const gain = ctx.createGain();
+          const startTime = now + note.t;
+          osc.type = 'triangle';
+          osc.frequency.setValueAtTime(note.f, startTime);
+          gain.gain.setValueAtTime(0.25, startTime);
+          gain.gain.exponentialRampToValueAtTime(0.001, startTime + note.d);
+          osc.connect(gain);
+          gain.connect(ctx.destination);
+          osc.start(startTime);
+          osc.stop(startTime + note.d);
+        });
+      }
+    }
+
+    /**
+     * KHỞI TẠO VÀ XÁO TRỘN BÀI (FISHER-YATES SHUFFLE)
+     */
+    function initGame() {
+      matchedPairsCount = 0;
+      movesCount = 0;
+      score = 0;
+      flippedCards = [];
+      isLocked = false;
+      gameEnded = false;
+
+      // Cập nhật ảnh nền
+      document.getElementById('atomic-bg').style.backgroundImage = `url('${bgImageUrl}')`;
+
+      // Tạo mảng 12 thẻ (6 thẻ trái, 6 thẻ phải)
+      let cardList = [];
+      const numPairs = Math.min(6, questionsData.length);
+
+      for (let i = 0; i < numPairs; i++) {
+        cardList.push({
+          id: `left-${i}`,
+          pairIndex: i,
+          text: questionsData[i].left,
+          type: 'left',
+          isFlipped: false,
+          isMatched: false
+        });
+        cardList.push({
+          id: `right-${i}`,
+          pairIndex: i,
+          text: questionsData[i].right,
+          type: 'right',
+          isFlipped: false,
+          isMatched: false
+        });
+      }
+
+      // Xáo trộn ngẫu nhiên 12 thẻ
+      for (let i = cardList.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [cardList[i], cardList[j]] = [cardList[j], cardList[i]];
+      }
+
+      // Gán số hiệu thẻ từ 1 đến 12
+      cards = cardList.map((card, idx) => ({
+        ...card,
+        displayNumber: idx + 1
+      }));
+
+      // Khởi tạo mảng chữ cái của từ khóa bí mật
+      initKeywordSlots();
+
+      // Cập nhật giao diện
+      updateUI();
+      renderGrid();
+    }
+
+    /**
+     * TẠO BẢNG Ô CHỮ TỪ KHÓA BÍ MẬT
+     */
+    function initKeywordSlots() {
+      const chars = secretKeyword.split('');
+      revealedLetters = chars.map(ch => ch === ' '); // Khoảng trắng mặc định mở
+    }
+
+    /**
+     * RENDER LƯỚI 12 Ô THẺ BÀI (4x3 GRID)
+     */
+    function renderGrid() {
+      const gridContainer = document.getElementById('card-grid');
+      gridContainer.innerHTML = '';
+
+      cards.forEach((card, index) => {
+        const cardEl = document.createElement('div');
+        cardEl.className = `relative h-full w-full perspective-1000 cursor-pointer select-none ${card.isMatched ? 'card-matched-hidden' : ''}`;
+        cardEl.setAttribute('data-index', index);
+        cardEl.onclick = () => handleCardClick(index);
+
+        const innerEl = document.createElement('div');
+        innerEl.id = `card-inner-${index}`;
+        innerEl.className = `w-full h-full transform-style-3d transition-transform duration-500 rounded-xl relative ${card.isFlipped ? 'rotate-y-180' : ''}`;
+
+        // Mặt Úp (Card Face Front)
+        const frontEl = document.createElement('div');
+        frontEl.className = 'absolute inset-0 backface-hidden rounded-xl card-front-design flex items-center justify-center transition-all';
+        frontEl.innerHTML = `
+          <span class="card-number-text text-3xl sm:text-4xl md:text-5xl font-extrabold select-none">
+            ${card.displayNumber}
+          </span>
+        `;
+
+        // Mặt Ngửa (Card Back Glassmorphism)
+        const backEl = document.createElement('div');
+        backEl.id = `card-back-${index}`;
+        backEl.className = 'absolute inset-0 backface-hidden rotate-y-180 rounded-xl card-back-glass flex items-center justify-center p-2.5 sm:p-3 text-center text-xs sm:text-sm md:text-base font-semibold text-slate-100 leading-snug overflow-hidden select-text';
+        backEl.innerHTML = `<div>${card.text}</div>`;
+
+        innerEl.appendChild(frontEl);
+        innerEl.appendChild(backEl);
+        cardEl.appendChild(innerEl);
+        gridContainer.appendChild(cardEl);
+      });
+
+      // Render biểu thức MathJax
+      renderMathJax();
+    }
+
+    /**
+     * XỬ LÝ SỰ KIỆN CLICK VÀO Ô THẺ BÀI
+     */
+    function handleCardClick(index) {
+      if (isLocked || gameEnded) return;
+      const card = cards[index];
+
+      // Nếu thẻ đã mở hoặc đã ghép đúng thì bỏ qua
+      if (card.isFlipped || card.isMatched) return;
+
+      // Phát âm thanh lật thẻ
+      playSound('flip');
+
+      // Lật thẻ
+      card.isFlipped = true;
+      flippedCards.push(index);
+
+      const innerEl = document.getElementById(`card-inner-${index}`);
+      if (innerEl) innerEl.classList.add('rotate-y-180');
+
+      // Khi đã lật đủ 2 thẻ
+      if (flippedCards.length === 2) {
+        isLocked = true;
+        movesCount++;
+        document.getElementById('moves-count').innerText = movesCount;
+
+        const [idx1, idx2] = flippedCards;
+        const card1 = cards[idx1];
+        const card2 = cards[idx2];
+
+        // KIỂM TRẢ GHÉP ĐÚNG
+        if (card1.pairIndex === card2.pairIndex && card1.type !== card2.type) {
+          // Lật đúng cặp!
+          playSound('match');
+
+          // Hiệu ứng viền xanh chớp nhẹ
+          const back1 = document.getElementById(`card-back-${idx1}`);
+          const back2 = document.getElementById(`card-back-${idx2}`);
+          if (back1) back1.classList.add('animate-success-glow');
+          if (back2) back2.classList.add('animate-success-glow');
+
+          setTimeout(() => {
+            card1.isMatched = true;
+            card2.isMatched = true;
+
+            // Hai thẻ chuyển sang trong suốt để lộ ảnh nền
+            const cardEl1 = document.querySelectorAll('#card-grid > div')[idx1];
+            const cardEl2 = document.querySelectorAll('#card-grid > div')[idx2];
+            if (cardEl1) cardEl1.classList.add('card-matched-hidden');
+            if (cardEl2) cardEl2.classList.add('card-matched-hidden');
+
+            matchedPairsCount++;
+            score += 100;
+
+            // Reveal 1 chữ cái tương ứng trong từ khóa bí mật
+            revealNextKeywordLetter();
+
+            flippedCards = [];
+            isLocked = false;
+            updateUI();
+
+            // Kiểm tra xem đã thắng hoàn toàn chưa
+            if (matchedPairsCount === questionsData.length) {
+              triggerVictory(true);
+            }
+          }, 600);
+
+        } else {
+          // LẬT SAI: Rung viền đỏ + âm bíp trầm + Giữ 2.5 giây cho học sinh ghi nhớ
+          playSound('wrong');
+
+          const back1 = document.getElementById(`card-back-${idx1}`);
+          const back2 = document.getElementById(`card-back-${idx2}`);
+          if (back1) back1.classList.add('animate-shake');
+          if (back2) back2.classList.add('animate-shake');
+
+          setTimeout(() => {
+            card1.isFlipped = false;
+            card2.isFlipped = false;
+
+            if (innerEl) innerEl.classList.remove('rotate-y-180');
+            const inner1 = document.getElementById(`card-inner-${idx1}`);
+            const inner2 = document.getElementById(`card-inner-${idx2}`);
+            if (inner1) inner1.classList.remove('rotate-y-180');
+            if (inner2) inner2.classList.remove('rotate-y-180');
+
+            if (back1) back1.classList.remove('animate-shake');
+            if (back2) back2.classList.remove('animate-shake');
+
+            flippedCards = [];
+            isLocked = false;
+          }, 2500); // Giữ nguyên đúng 2.5 giây theo yêu cầu đề bài
+        }
+      }
+    }
+
+    /**
+     * MỞ MỘT CHỮ CÁI TƯƠNG ỨNG TRONG TỪ KHÓA BÍ MẬT KHI LẬT ĐÚNG 1 CẶP
+     */
+    function revealNextKeywordLetter() {
+      const chars = secretKeyword.split('');
+      // Tìm vị trí chữ cái chưa mở đầu tiên (không tính khoảng trắng)
+      for (let i = 0; i < chars.length; i++) {
+        if (chars[i] !== ' ' && !revealedLetters[i]) {
+          revealedLetters[i] = true;
+          break;
+        }
+      }
+      renderKeywordSlots();
+    }
+
+    /**
+     * RENDER THANH HIỂN THỊ TỪ KHÓA BÍ MẬT dạng ô chữ
+     */
+    function renderKeywordSlots() {
+      const container = document.getElementById('keyword-slots');
+      container.innerHTML = '';
+
+      const chars = secretKeyword.split('');
+      chars.forEach((ch, idx) => {
+        if (ch === ' ') {
+          // Khoảng trắng giữa các từ
+          const spaceEl = document.createElement('div');
+          spaceEl.className = 'w-4 sm:w-6';
+          container.appendChild(spaceEl);
+        } else {
+          const slotEl = document.createElement('div');
+          const isRevealed = revealedLetters[idx];
+
+          if (isRevealed) {
+            slotEl.className = 'w-7 h-9 sm:w-9 sm:h-11 rounded-lg bg-gradient-to-b from-emerald-500 to-teal-700 text-white font-extrabold text-sm sm:text-lg flex items-center justify-center border border-emerald-300 shadow-[0_0_12px_rgba(16,185,129,0.5)] uppercase transition-all duration-500 transform scale-105';
+            slotEl.innerText = ch;
+          } else {
+            slotEl.className = 'w-7 h-9 sm:w-9 sm:h-11 rounded-lg bg-slate-800/90 border border-slate-700 text-slate-500 font-bold text-xs sm:text-sm flex items-center justify-center shadow-inner';
+            slotEl.innerText = '?';
+          }
+          container.appendChild(slotEl);
+        }
+      });
+    }
+
+    /**
+     * ĐOÁN Ô CHỮ BÍ MẬT
+     */
+    function guessKeyword() {
+      if (gameEnded) return;
+
+      const inputEl = document.getElementById('guess-input');
+      const userGuess = inputEl.value.trim().toLowerCase();
+
+      if (!userGuess) {
+        showToast("Vui lòng nhập câu trả lời của bạn!");
+        return;
+      }
+
+      const targetKeyword = secretKeyword.trim().toLowerCase();
+
+      // Chuẩn hóa so sánh không phân biệt hoa/thường, dấu
+      if (userGuess === targetKeyword || userGuess.normalize("NFC") === targetKeyword.normalize("NFC")) {
+        // ĐOÁN ĐÚNG!
+        showToast("🎉 CHÍNH XÁC! Bạn đã đoán đúng từ khóa bí mật!", "success");
+        score += 500;
+        triggerVictory(true);
+      } else {
+        // ĐOÁN SAI
+        playSound('wrong');
+        showToast("❌ Chưa chính xác! Hãy tiếp tục lật hình để tìm thêm gợi ý.", "error");
+        inputEl.classList.add('border-red-500');
+        setTimeout(() => inputEl.classList.remove('border-red-500'), 1500);
+      }
+    }
+
+    /**
+     * KÍCH HOẠT CHIẾN THẮNG & HIỆU ỨNG PHÁO HOA
+     */
+    function triggerVictory(guessCorrect = false) {
+      gameEnded = true;
+
+      // 1. Toàn bộ 12 ô ngay lập tức biến mất để lộ hoàn toàn bức ảnh nguyên tử
+      cards.forEach(c => {
+        c.isMatched = true;
+      });
+      const cardDivs = document.querySelectorAll('#card-grid > div');
+      cardDivs.forEach(div => div.classList.add('card-matched-hidden'));
+
+      // 2. Mở toàn bộ từ khóa
+      revealedLetters = secretKeyword.split('').map(() => true);
+      renderKeywordSlots();
+
+      // 3. Cập nhật UI
+      matchedPairsCount = questionsData.length;
+      updateUI();
+
+      // 4. Phát âm thanh chiến thắng
+      playSound('victory');
+
+      // 5. Kích hoạt pháo hoa rực rỡ
+      startFireworks();
+
+      showToast("🏆 BẠN ĐÃ GIẢI MÃ THÀNH CÔNG BỨC ẢNH NGUYÊN TỬ!", "success");
+    }
+
+    /**
+     * CẬP NHẬT GIAO DIỆN CHUNG (PROGRESS BAR, SCORE, KEYWORD)
+     */
+    function updateUI() {
+      const totalPairs = questionsData.length;
+      const progressPercent = Math.round((matchedPairsCount / totalPairs) * 100);
+
+      document.getElementById('progress-text').innerText = `${matchedPairsCount} / ${totalPairs} cặp`;
+      document.getElementById('progress-bar').style.width = `${progressPercent}%`;
+      document.getElementById('score-text').innerText = score;
+
+      renderKeywordSlots();
+    }
+
+    /**
+     * MATHJAX RENDER HELPER
+     */
+    function renderMathJax() {
+      if (window.MathJax && typeof window.MathJax.typesetPromise === 'function') {
+        window.MathJax.typesetPromise().catch(err => console.log('MathJax error:', err));
+      }
+    }
+
+    /**
+     * TOÀN MÀN HÌNH (FULLSCREEN TOGGLE)
+     */
+    function toggleFullscreen() {
+      if (!document.fullscreenElement) {
+        document.documentElement.requestFullscreen().catch(err => {
+          showToast("Trình duyệt không hỗ trợ chế độ toàn màn hình tự động.");
+        });
+      } else {
+        if (document.exitFullscreen) {
+          document.exitFullscreen();
+        }
+      }
+    }
+
+    /**
+     * BẬT / TẮT ÂM THANH
+     */
+    function toggleSound() {
+      soundEnabled = !soundEnabled;
+      const statusEl = document.getElementById('sound-status');
+      const iconEl = document.getElementById('sound-icon');
+
+      if (soundEnabled) {
+        statusEl.innerText = "BẬT";
+        statusEl.className = "text-xs font-bold px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-400";
+        iconEl.innerText = "🔊";
+      } else {
+        statusEl.innerText = "TẮT";
+        statusEl.className = "text-xs font-bold px-2 py-0.5 rounded bg-rose-500/20 text-rose-400";
+        iconEl.innerText = "🔇";
+      }
+    }
+
+    /**
+     * QUẢN LÝ SIDE PANEL CÀI ĐẶT
+     */
+    function openSettings() {
+      document.getElementById('settings-backdrop').classList.remove('hidden');
+      document.getElementById('settings-panel').classList.remove('translate-x-full');
+
+      // Điền sẵn dữ liệu vào form cài đặt
+      document.getElementById('setting-keyword').value = secretKeyword;
+      document.getElementById('setting-bg-url').value = bgImageUrl;
+      document.getElementById('setting-json').value = JSON.stringify(questionsData, null, 2);
+    }
+
+    function closeSettings() {
+      document.getElementById('settings-backdrop').classList.add('hidden');
+      document.getElementById('settings-panel').classList.add('translate-x-full');
+    }
+
+    function saveSettings() {
+      const newKeyword = document.getElementById('setting-keyword').value.trim();
+      const newBgUrl = document.getElementById('setting-bg-url').value.trim();
+      const jsonStr = document.getElementById('setting-json').value.trim();
+
+      if (!newKeyword) {
+        showToast("Từ khóa không được để trống!", "error");
+        return;
+      }
+
+      try {
+        const parsedJSON = JSON.parse(jsonStr);
+        if (!Array.isArray(parsedJSON) || parsedJSON.length === 0) {
+          throw new Error("Mảng JSON phải chứa ít nhất 1 cặp câu hỏi.");
+        }
+
+        questionsData = parsedJSON;
+        secretKeyword = newKeyword;
+        if (newBgUrl) bgImageUrl = newBgUrl;
+
+        closeSettings();
+        initGame();
+        showToast("Cập nhật cài đặt thành công!", "success");
+
+      } catch (err) {
+        showToast("Lỗi định dạng JSON! Vui lòng kiểm tra lại cấu trúc dữ liệu.", "error");
+      }
+    }
+
+    function restoreDefaults() {
+      questionsData = JSON.parse(JSON.stringify(DEFAULT_DATA));
+      secretKeyword = DEFAULT_KEYWORD;
+      bgImageUrl = DEFAULT_BG_URL;
+
+      document.getElementById('setting-keyword').value = secretKeyword;
+      document.getElementById('setting-bg-url').value = bgImageUrl;
+      document.getElementById('setting-json').value = JSON.stringify(questionsData, null, 2);
+
+      closeSettings();
+      initGame();
+      showToast("Đã khôi phục cài đặt mặc định!", "success");
+    }
+
+    function restartGame() {
+      closeSettings();
+      initGame();
+      showToast("Đã bắt đầu lượt chơi mới!");
+    }
+
+    /**
+     * HIỆU ỨNG PHÁO HOA CHÚC MỪNG (FIREWORKS CANVAS)
+     */
+    function startFireworks() {
+      const canvas = document.getElementById('fireworks-canvas');
+      canvas.classList.remove('hidden');
+      const ctx = canvas.getContext('2d');
+
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+
+      let particles = [];
+      const colors = ['#38bdf8', '#4ade80', '#facc15', '#f43f5e', '#a855f7', '#fb923c'];
+
+      function createExplosion(x, y) {
+        for (let i = 0; i < 60; i++) {
+          const angle = Math.random() * Math.PI * 2;
+          const speed = Math.random() * 6 + 2;
+          particles.push({
+            x, y,
+            vx: Math.cos(angle) * speed,
+            vy: Math.sin(angle) * speed,
+            color: colors[Math.floor(Math.random() * colors.length)],
+            alpha: 1,
+            decay: Math.random() * 0.02 + 0.01,
+            radius: Math.random() * 3 + 2
+          });
+        }
+      }
+
+      // Tạo nhiều đợt pháo hoa
+      createExplosion(canvas.width * 0.3, canvas.height * 0.4);
+      setTimeout(() => createExplosion(canvas.width * 0.7, canvas.height * 0.3), 300);
+      setTimeout(() => createExplosion(canvas.width * 0.5, canvas.height * 0.5), 600);
+      setTimeout(() => createExplosion(canvas.width * 0.2, canvas.height * 0.6), 900);
+      setTimeout(() => createExplosion(canvas.width * 0.8, canvas.height * 0.5), 1200);
+
+      let animId;
+      function loop() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+        particles.forEach((p, idx) => {
+          p.x += p.vx;
+          p.y += p.vy;
+          p.vy += 0.08; // Trọng lực
+          p.alpha -= p.decay;
+
+          ctx.save();
+          ctx.globalAlpha = Math.max(0, p.alpha);
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+          ctx.fillStyle = p.color;
+          ctx.fill();
+          ctx.restore();
+
+          if (p.alpha <= 0) {
+            particles.splice(idx, 1);
+          }
+        });
+
+        if (particles.length > 0) {
+          animId = requestAnimationFrame(loop);
+        } else {
+          canvas.classList.add('hidden');
+          cancelAnimationFrame(animId);
+        }
+      }
+      loop();
+    }
+
+    /**
+     * TOAST NOTIFICATION POPUP
+     */
+    function showToast(message, type = 'info') {
+      const container = document.getElementById('toast-container');
+      const toast = document.createElement('div');
+
+      let bgClass = "bg-slate-900 border-slate-700 text-white";
+      if (type === 'success') bgClass = "bg-emerald-950/90 border-emerald-500/50 text-emerald-200 shadow-emerald-500/20";
+      if (type === 'error') bgClass = "bg-rose-950/90 border-rose-500/50 text-rose-200 shadow-rose-500/20";
+
+      toast.className = `px-4 py-2.5 rounded-xl border backdrop-blur-md shadow-xl text-xs sm:text-sm font-semibold transition-all transform translate-y-4 opacity-0 flex items-center gap-2 pointer-events-auto ${bgClass}`;
+      toast.innerText = message;
+
+      container.appendChild(toast);
+
+      requestAnimationFrame(() => {
+        toast.classList.remove('translate-y-4', 'opacity-0');
+      });
+
+      setTimeout(() => {
+        toast.classList.add('opacity-0', 'translate-y-2');
+        setTimeout(() => toast.remove(), 300);
+      }, 3000);
+    }
+
+    // Khởi tạo game khi trang tải hoàn tất
+    window.onload = () => {
+      initGame();
+    };
+  </script>
+
+</body>
+</html>
