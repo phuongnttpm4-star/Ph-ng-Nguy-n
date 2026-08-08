@@ -1,0 +1,255 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" width="1200" height="675">
+  <defs>
+    <!-- Background Gradient -->
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#0284c7"/>
+      <stop offset="18%" stop-color="#0284c7"/>
+      <stop offset="30%" stop-color="#f0f9ff"/>
+      <stop offset="100%" stop-color="#e0f2fe"/>
+    </linearGradient>
+
+    <linearGradient id="headerBadge" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f59e0b"/>
+      <stop offset="100%" stop-color="#d97706"/>
+    </linearGradient>
+
+    <!-- Node Gradients -->
+    <linearGradient id="orangeNode" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f97316"/>
+      <stop offset="100%" stop-color="#ea580c"/>
+    </linearGradient>
+
+    <linearGradient id="amberNode" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fbbf24"/>
+      <stop offset="100%" stop-color="#d97706"/>
+    </linearGradient>
+
+    <linearGradient id="yellowBox" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fef08a"/>
+      <stop offset="100%" stop-color="#fde047"/>
+    </linearGradient>
+
+    <linearGradient id="tealNode" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#14b8a6"/>
+      <stop offset="100%" stop-color="#0d9488"/>
+    </linearGradient>
+
+    <linearGradient id="cyanBox" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#e0f2fe"/>
+      <stop offset="100%" stop-color="#bae6fd"/>
+    </linearGradient>
+
+    <linearGradient id="greenNode" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#22c55e"/>
+      <stop offset="100%" stop-color="#16a34a"/>
+    </linearGradient>
+
+    <!-- Drop Shadows -->
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="2" dy="4" stdDeviation="4" flood-color="#0f172a" flood-opacity="0.12"/>
+    </filter>
+  </defs>
+
+  <!-- Canvas Background -->
+  <rect width="1200" height="675" fill="url(#bgGrad)"/>
+
+  <!-- Top Decorative Polygon Accent (Left Top Hexagon/Tab) -->
+  <polygon points="0,0 230,0 180,95 0,95" fill="#f59e0b"/>
+  <polygon points="0,0 215,0 170,85 0,85" fill="#fef08a" opacity="0.3"/>
+
+  <!-- Header Text -->
+  <g font-family="'Plus Jakarta Sans', Arial, sans-serif">
+    <!-- BÀI 4 Badge -->
+    <g transform="translate(110, 48)">
+      <polygon points="0,-28 28,-14 28,14 0,28 -28,14 -28,-14" fill="#ffffff" filter="url(#shadow)"/>
+      <text x="0" y="-4" font-size="11" font-weight="800" fill="#d97706" text-anchor="middle">BÀI</text>
+      <text x="0" y="16" font-size="22" font-weight="900" fill="#d97706" text-anchor="middle">4</text>
+    </g>
+
+    <text x="250" y="52" font-size="30" font-weight="900" fill="#ffffff" letter-spacing="1">ÔN TẬP CHƯƠNG 1</text>
+  </g>
+
+  <!-- Section Title -->
+  <g transform="translate(100, 140)" font-family="'Plus Jakarta Sans', Arial, sans-serif">
+    <rect x="0" y="0" width="32" height="32" rx="8" fill="#0284c7"/>
+    <text x="16" y="22" font-size="18" font-weight="900" fill="#ffffff" text-anchor="middle">I</text>
+    <text x="44" y="23" font-size="20" font-weight="800" fill="#0369a1">HỆ THỐNG HOÁ KIẾN THỨC</text>
+  </g>
+
+  <!-- Connector Lines (Connecting Mindmap Nodes) -->
+  <g stroke-linecap="round" stroke-linejoin="round" fill="none">
+    <!-- Main Node NGUYÊN TỬ -> HẠT NHÂN -->
+    <path d="M 230,390 C 230,270 260,270 300,270" stroke="#f97316" stroke-width="3"/>
+    
+    <!-- Main Node NGUYÊN TỬ -> VỎ NGUYÊN TỬ -->
+    <path d="M 270,390 L 360,390" stroke="#14b8a6" stroke-width="3"/>
+
+    <!-- Main Node NGUYÊN TỬ -> NGUYÊN TỐ HOÁ HỌC -->
+    <path d="M 230,390 C 230,520 260,520 300,520" stroke="#22c55e" stroke-width="3"/>
+
+    <!-- HẠT NHÂN -> Hạt neutron / Hạt proton -->
+    <path d="M 440,270 C 500,270 500,225 540,225" stroke="#f97316" stroke-width="2.5"/>
+    <path d="M 440,270 C 500,270 500,315 540,315" stroke="#f97316" stroke-width="2.5"/>
+
+    <!-- Hạt neutron -> Box Khối lượng / Điện tích -->
+    <path d="M 610,225 L 660,225" stroke="#ea580c" stroke-width="2" marker-end="url(#arrow)"/>
+    <!-- Hạt proton -> Box Khối lượng / Điện tích -->
+    <path d="M 610,315 L 660,315" stroke="#ea580c" stroke-width="2"/>
+
+    <!-- VỎ NGUYÊN TỬ -> Hạt electron / Orbital / Lớp / Cấu hình -->
+    <path d="M 520,390 C 560,390 560,390 590,390" stroke="#0d9488" stroke-width="2.5"/>
+    <path d="M 520,390 C 560,390 560,465 590,465" stroke="#0d9488" stroke-width="2.5"/>
+    <path d="M 520,390 C 560,390 560,545 590,545" stroke="#0d9488" stroke-width="2.5"/>
+    <path d="M 520,390 C 560,390 560,610 590,610" stroke="#0d9488" stroke-width="2.5"/>
+  </g>
+
+  <!-- Arrows -->
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#ea580c"/>
+    </marker>
+  </defs>
+
+  <!-- ==================== MINDMAP NODES & TEXT ==================== -->
+  <g font-family="'Plus Jakarta Sans', Arial, sans-serif">
+
+    <!-- 1. CENTRAL NODE: NGUYÊN TỬ -->
+    <g transform="translate(230, 390)" filter="url(#shadow)">
+      <circle cx="0" cy="0" r="62" fill="#ffffff" stroke="#f97316" stroke-width="4"/>
+      <circle cx="0" cy="0" r="54" fill="url(#orangeNode)"/>
+      <text x="0" y="-6" font-size="18" font-weight="900" fill="#ffffff" text-anchor="middle">NGUYÊN</text>
+      <text x="0" y="18" font-size="18" font-weight="900" fill="#ffffff" text-anchor="middle">TỬ</text>
+    </g>
+
+    <!-- Note Callout Box: Kích thước / Khối lượng / Z -->
+    <g transform="translate(290, 310)" filter="url(#shadow)">
+      <path d="M 0,35 L -20,50 L 10,50 Z" fill="#fde047"/>
+      <rect x="-10" y="0" width="180" height="60" rx="10" fill="url(#yellowBox)" stroke="#eab308" stroke-width="1.5"/>
+      <text x="0" y="18" font-size="13" font-weight="700" fill="#713f12">Kích thước: ~10⁻¹⁰ m</text>
+      <text x="0" y="36" font-size="13" font-weight="700" fill="#713f12">Khối lượng: tập trung ở hạt nhân</text>
+      <text x="0" y="52" font-size="13" font-weight="800" fill="#854d0e">Z = số p = số e</text>
+    </g>
+
+    <!-- 2. BRANCH 1: HẠT NHÂN -->
+    <g transform="translate(300, 245)" filter="url(#shadow)">
+      <rect x="0" y="0" width="140" height="50" rx="15" fill="url(#orangeNode)"/>
+      <text x="70" y="32" font-size="17" font-weight="900" fill="#ffffff" text-anchor="middle">HẠT NHÂN</text>
+    </g>
+
+    <!-- Sub-node: Hạt neutron -->
+    <g transform="translate(540, 205)" filter="url(#shadow)">
+      <rect x="0" y="0" width="100" height="40" rx="20" fill="url(#amberNode)"/>
+      <text x="50" y="18" font-size="12" font-weight="700" fill="#ffffff" text-anchor="middle">Hạt</text>
+      <text x="50" y="32" font-size="13" font-weight="800" fill="#ffffff" text-anchor="middle">neutron (n)</text>
+    </g>
+
+    <!-- Detail Box: Neutron -->
+    <g transform="translate(660, 200)" filter="url(#shadow)">
+      <rect x="0" y="0" width="280" height="48" rx="12" fill="url(#yellowBox)" stroke="#eab308" stroke-width="1.5"/>
+      <text x="15" y="20" font-size="13" font-weight="700" fill="#713f12">Khối lượng ≈ 1 amu</text>
+      <text x="15" y="38" font-size="13" font-weight="700" fill="#713f12">Điện tích = 0 (không mang điện)</text>
+    </g>
+
+    <!-- Sub-node: Hạt proton -->
+    <g transform="translate(540, 295)" filter="url(#shadow)">
+      <rect x="0" y="0" width="100" height="40" rx="20" fill="url(#amberNode)"/>
+      <text x="50" y="18" font-size="12" font-weight="700" fill="#ffffff" text-anchor="middle">Hạt</text>
+      <text x="50" y="32" font-size="13" font-weight="800" fill="#ffffff" text-anchor="middle">proton (p)</text>
+    </g>
+
+    <!-- Detail Box: Proton -->
+    <g transform="translate(660, 290)" filter="url(#shadow)">
+      <rect x="0" y="0" width="280" height="48" rx="12" fill="url(#yellowBox)" stroke="#eab308" stroke-width="1.5"/>
+      <text x="15" y="20" font-size="13" font-weight="700" fill="#713f12">Khối lượng ≈ 1 amu</text>
+      <text x="15" y="38" font-size="13" font-weight="700" fill="#713f12">Điện tích = +1 (1,602 × 10⁻¹⁹ C)</text>
+    </g>
+
+
+    <!-- 3. BRANCH 2: VỎ NGUYÊN TỬ -->
+    <g transform="translate(360, 365)" filter="url(#shadow)">
+      <rect x="0" y="0" width="160" height="50" rx="15" fill="url(#tealNode)"/>
+      <text x="80" y="32" font-size="17" font-weight="900" fill="#ffffff" text-anchor="middle">VỎ NGUYÊN TỬ</text>
+    </g>
+
+    <!-- Sub-node: Hạt electron -->
+    <g transform="translate(590, 368)" filter="url(#shadow)">
+      <rect x="0" y="0" width="100" height="40" rx="20" fill="#38bdf8"/>
+      <text x="50" y="18" font-size="12" font-weight="700" fill="#ffffff" text-anchor="middle">Hạt</text>
+      <text x="50" y="32" font-size="13" font-weight="800" fill="#ffffff" text-anchor="middle">electron (e)</text>
+    </g>
+
+    <!-- Detail Box: Electron -->
+    <g transform="translate(715, 363)" filter="url(#shadow)">
+      <rect x="0" y="0" width="280" height="48" rx="12" fill="url(#cyanBox)" stroke="#38bdf8" stroke-width="1.5"/>
+      <text x="15" y="20" font-size="13" font-weight="700" fill="#0369a1">Khối lượng ≈ 0,00055 amu (rất nhỏ)</text>
+      <text x="15" y="38" font-size="13" font-weight="700" fill="#0369a1">Điện tích = -1 (-1,602 × 10⁻¹⁹ C)</text>
+    </g>
+
+    <!-- Detail Box: Orbital (AO) -->
+    <g transform="translate(590, 428)" filter="url(#shadow)">
+      <rect x="0" y="0" width="405" height="60" rx="12" fill="url(#cyanBox)" stroke="#38bdf8" stroke-width="1.5"/>
+      <text x="15" y="20" font-size="13" font-weight="700" fill="#0369a1">AO s có dạng hình cầu đối xứng</text>
+      <text x="15" y="38" font-size="13" font-weight="700" fill="#0369a1">AO p gồm p_x, p_y, p_z có dạng hình số 8 nổi</text>
+      <text x="15" y="54" font-size="13" font-weight="800" fill="#0284c7">Mỗi AO chứa tối đa 2 electron (ghép đôi)</text>
+    </g>
+
+    <!-- Detail Table: Electron Shells (Lớp & Phân lớp) -->
+    <g transform="translate(590, 500)" filter="url(#shadow)">
+      <rect x="0" y="0" width="405" height="80" rx="8" fill="#ffffff" stroke="#0284c7" stroke-width="1.5"/>
+      <!-- Table Header -->
+      <path d="M 0,0 L 405,0 L 405,24 L 0,24 Z" fill="#0284c7"/>
+      <text x="120" y="17" font-size="12" font-weight="800" fill="#ffffff" text-anchor="middle">Lớp electron (n)</text>
+      <text x="230" y="17" font-size="12" font-weight="800" fill="#ffffff" text-anchor="middle">1 (K)</text>
+      <text x="280" y="17" font-size="12" font-weight="800" fill="#ffffff" text-anchor="middle">2 (L)</text>
+      <text x="330" y="17" font-size="12" font-weight="800" fill="#ffffff" text-anchor="middle">3 (M)</text>
+      <text x="380" y="17" font-size="12" font-weight="800" fill="#ffffff" text-anchor="middle">4 (N)</text>
+      
+      <!-- Table Grid Lines -->
+      <line x1="0" y1="24" x2="405" y2="24" stroke="#cbd5e1" stroke-width="1"/>
+      <line x1="0" y1="43" x2="405" y2="43" stroke="#cbd5e1" stroke-width="1"/>
+      <line x1="0" y1="62" x2="405" y2="62" stroke="#cbd5e1" stroke-width="1"/>
+      <line x1="200" y1="0" x2="200" y2="80" stroke="#cbd5e1" stroke-width="1"/>
+
+      <text x="10" y="38" font-size="11" font-weight="700" fill="#334155">Phân lớp electron</text>
+      <text x="230" y="38" font-size="11" fill="#0f172a" text-anchor="middle">1s</text>
+      <text x="280" y="38" font-size="11" fill="#0f172a" text-anchor="middle">2s 2p</text>
+      <text x="330" y="38" font-size="11" fill="#0f172a" text-anchor="middle">3s 3p 3d</text>
+      <text x="380" y="38" font-size="11" fill="#0f172a" text-anchor="middle">4s..4f</text>
+
+      <text x="10" y="56" font-size="11" font-weight="700" fill="#334155">Số AO trong lớp (n²)</text>
+      <text x="230" y="56" font-size="11" fill="#0f172a" text-anchor="middle">1</text>
+      <text x="280" y="56" font-size="11" fill="#0f172a" text-anchor="middle">4</text>
+      <text x="330" y="56" font-size="11" fill="#0f172a" text-anchor="middle">9</text>
+      <text x="380" y="56" font-size="11" fill="#0f172a" text-anchor="middle">16</text>
+
+      <text x="10" y="74" font-size="11" font-weight="800" fill="#0284c7">Số e tối đa (2n²)</text>
+      <text x="230" y="74" font-size="11" font-weight="800" fill="#0284c7" text-anchor="middle">2e</text>
+      <text x="280" y="74" font-size="11" font-weight="800" fill="#0284c7" text-anchor="middle">8e</text>
+      <text x="330" y="74" font-size="11" font-weight="800" fill="#0284c7" text-anchor="middle">18e</text>
+      <text x="380" y="74" font-size="11" font-weight="800" fill="#0284c7" text-anchor="middle">32e</text>
+    </g>
+
+    <!-- Cấu hình electron năng lượng -->
+    <g transform="translate(590, 592)" filter="url(#shadow)">
+      <rect x="0" y="0" width="405" height="36" rx="10" fill="url(#cyanBox)" stroke="#38bdf8" stroke-width="1.5"/>
+      <text x="15" y="22" font-size="13" font-weight="800" fill="#0369a1">Trật tự năng lượng: <tspan fill="#0d9488">1s 2s 2p 3s 3p 4s 3d 4p 5s...</tspan></text>
+    </g>
+
+
+    <!-- 4. BRANCH 3: NGUYÊN TỐ HOÁ HỌC -->
+    <g transform="translate(300, 495)" filter="url(#shadow)">
+      <rect x="0" y="0" width="180" height="50" rx="15" fill="url(#greenNode)"/>
+      <text x="90" y="24" font-size="15" font-weight="900" fill="#ffffff" text-anchor="middle">NGUYÊN TỐ</text>
+      <text x="90" y="40" font-size="15" font-weight="900" fill="#ffffff" text-anchor="middle">HOÁ HỌC</text>
+    </g>
+
+    <!-- Sub-details: Số khối / Đồng vị -->
+    <g transform="translate(100, 570)" filter="url(#shadow)">
+      <rect x="0" y="0" width="380" height="75" rx="12" fill="#f0fdf4" stroke="#22c55e" stroke-width="1.5"/>
+      <text x="15" y="22" font-size="13" font-weight="800" fill="#15803d">• Số khối (A) = Z + N  (A = p + n)</text>
+      <text x="15" y="42" font-size="13" font-weight="800" fill="#15803d">• Kí hiệu nguyên tử: ᴬ_Z X</text>
+      <text x="15" y="62" font-size="13" font-weight="800" fill="#15803d">• Đồng vị: cùng số p (cùng Z), khác số n (khác A)</text>
+    </g>
+
+  </g>
+</svg>

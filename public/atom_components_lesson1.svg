@@ -1,0 +1,258 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" width="1200" height="675">
+  <defs>
+    <!-- Background Gradient -->
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="100%" stop-color="#f8fafc"/>
+    </linearGradient>
+
+    <!-- Sphere Gradients -->
+    <!-- Red Proton -->
+    <radialGradient id="protonGrad" cx="35%" cy="35%" r="65%">
+      <stop offset="0%" stop-color="#ff7b62"/>
+      <stop offset="60%" stop-color="#dc2626"/>
+      <stop offset="100%" stop-color="#991b1b"/>
+    </radialGradient>
+
+    <!-- Blue Neutron -->
+    <radialGradient id="neutronGrad" cx="35%" cy="35%" r="65%">
+      <stop offset="0%" stop-color="#60a5fa"/>
+      <stop offset="60%" stop-color="#2563eb"/>
+      <stop offset="100%" stop-color="#1e3a8a"/>
+    </radialGradient>
+
+    <!-- Green Electron -->
+    <radialGradient id="electronGrad" cx="35%" cy="35%" r="65%">
+      <stop offset="0%" stop-color="#86efac"/>
+      <stop offset="60%" stop-color="#16a34a"/>
+      <stop offset="100%" stop-color="#14532d"/>
+    </radialGradient>
+
+    <!-- Atom Shell Gradients -->
+    <!-- Hydrogen (Blue/Indigo Tint) -->
+    <radialGradient id="hydrogenShell" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="70%" stop-color="#e0e7ff"/>
+      <stop offset="100%" stop-color="#c7d2fe"/>
+    </radialGradient>
+
+    <!-- Carbon (Grey/Black Tint) -->
+    <radialGradient id="carbonOuter" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#f1f5f9"/>
+      <stop offset="70%" stop-color="#cbd5e1"/>
+      <stop offset="100%" stop-color="#94a3b8"/>
+    </radialGradient>
+    <radialGradient id="carbonInner" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#64748b"/>
+      <stop offset="100%" stop-color="#334155"/>
+    </radialGradient>
+
+    <!-- Oxygen (Red/Pink Tint) -->
+    <radialGradient id="oxygenOuter" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="70%" stop-color="#ffe4e6"/>
+      <stop offset="100%" stop-color="#fecdd3"/>
+    </radialGradient>
+    <radialGradient id="oxygenInner" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#fecdd3"/>
+      <stop offset="100%" stop-color="#fda4af"/>
+    </radialGradient>
+
+    <!-- Nitrogen (Sky/Blue Tint) -->
+    <radialGradient id="nitrogenOuter" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="70%" stop-color="#e0f2fe"/>
+      <stop offset="100%" stop-color="#bae6fd"/>
+    </radialGradient>
+    <radialGradient id="nitrogenInner" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#bae6fd"/>
+      <stop offset="100%" stop-color="#7dd3fc"/>
+    </radialGradient>
+
+    <!-- Drop Shadow Filter -->
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#0f172a" flood-opacity="0.12"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="675" fill="url(#bgGrad)"/>
+
+  <!-- Top Title / Header Line (subtle) -->
+  <text x="600" y="55" font-family="'Plus Jakarta Sans', Arial, sans-serif" font-size="24" font-weight="900" fill="#0f172a" text-anchor="middle" letter-spacing="0.5">
+    CẤU TẠO NGUYÊN TỬ MỘT SỐ NGUYÊN TỐ
+  </text>
+  <line x1="400" y1="70" x2="800" y2="70" stroke="#cbd5e1" stroke-width="2" stroke-linecap="round"/>
+
+
+  <!-- ==================== 1. HYDROGEN ATOM (X = 170, Y = 280) ==================== -->
+  <g transform="translate(170, 280)" font-family="'Plus Jakarta Sans', Arial, sans-serif" filter="url(#shadow)">
+    <!-- Shell Circle -->
+    <circle cx="0" cy="0" r="120" fill="url(#hydrogenShell)" stroke="#818cf8" stroke-width="2"/>
+
+    <!-- Nucleus (1 Proton) -->
+    <circle cx="0" cy="0" r="22" fill="url(#protonGrad)"/>
+    <text x="0" y="7" font-size="22" font-weight="900" fill="#ffffff" text-anchor="middle">+</text>
+
+    <!-- 1 Electron (Top Left) -->
+    <g transform="translate(-85, -85)">
+      <circle cx="0" cy="0" r="14" fill="url(#electronGrad)"/>
+      <text x="0" y="5" font-size="18" font-weight="900" fill="#ffffff" text-anchor="middle">-</text>
+    </g>
+
+    <!-- Labels & Legend -->
+    <text x="0" y="160" font-size="20" font-weight="800" fill="#0f172a" text-anchor="middle">Hydrogen Atom</text>
+
+    <!-- Legend Items -->
+    <g transform="translate(-50, 182)">
+      <!-- Electron -->
+      <circle cx="0" cy="0" r="7" fill="url(#electronGrad)"/>
+      <text x="14" y="4" font-size="12" font-weight="700" fill="#334155">Electron</text>
+
+      <!-- Proton -->
+      <circle cx="0" cy="22" r="7" fill="url(#protonGrad)"/>
+      <text x="14" y="26" font-size="12" font-weight="700" fill="#334155">Proton</text>
+    </g>
+  </g>
+
+
+  <!-- ==================== 2. CARBON ATOM (X = 450, Y = 280) ==================== -->
+  <g transform="translate(450, 280)" font-family="'Plus Jakarta Sans', Arial, sans-serif" filter="url(#shadow)">
+    <!-- Outer Shell -->
+    <circle cx="0" cy="0" r="120" fill="url(#carbonOuter)" stroke="#64748b" stroke-width="2"/>
+    <!-- Inner Shell -->
+    <circle cx="0" cy="0" r="60" fill="url(#carbonInner)" stroke="#475569" stroke-width="2"/>
+
+    <!-- Nucleus (Cluster of 6 Protons + 6 Neutrons) -->
+    <g transform="translate(0,0)">
+      <circle cx="-10" cy="-10" r="10" fill="url(#protonGrad)"/>
+      <circle cx="8" cy="-10" r="10" fill="url(#neutronGrad)"/>
+      <circle cx="-12" cy="8" r="10" fill="url(#neutronGrad)"/>
+      <circle cx="6" cy="10" r="10" fill="url(#protonGrad)"/>
+      <circle cx="0" cy="-2" r="11" fill="url(#protonGrad)"/>
+      <circle cx="-4" cy="4" r="10" fill="url(#neutronGrad)"/>
+    </g>
+
+    <!-- Inner Shell Electrons (2 e-) -->
+    <g transform="translate(0, -60)"><circle cx="0" cy="0" r="8" fill="url(#electronGrad)"/></g>
+    <g transform="translate(0, 60)"><circle cx="0" cy="0" r="8" fill="url(#electronGrad)"/></g>
+
+    <!-- Outer Shell Electrons (4 e-) -->
+    <g transform="translate(0, -120)"><circle cx="0" cy="0" r="8" fill="url(#electronGrad)"/></g>
+    <g transform="translate(120, 0)"><circle cx="0" cy="0" r="8" fill="url(#electronGrad)"/></g>
+    <g transform="translate(0, 120)"><circle cx="0" cy="0" r="8" fill="url(#electronGrad)"/></g>
+    <g transform="translate(-120, 0)"><circle cx="0" cy="0" r="8" fill="url(#electronGrad)"/></g>
+
+    <!-- Labels & Legend -->
+    <text x="0" y="160" font-size="20" font-weight="800" fill="#0f172a" text-anchor="middle">Carbon Atom</text>
+
+    <!-- Legend Items -->
+    <g transform="translate(-55, 182)">
+      <circle cx="0" cy="0" r="7" fill="url(#electronGrad)"/>
+      <text x="14" y="4" font-size="12" font-weight="700" fill="#334155">6 Electrons</text>
+
+      <circle cx="0" cy="20" r="7" fill="url(#protonGrad)"/>
+      <text x="14" y="24" font-size="12" font-weight="700" fill="#334155">6 Protons</text>
+
+      <circle cx="0" cy="40" r="7" fill="url(#neutronGrad)"/>
+      <text x="14" y="44" font-size="12" font-weight="700" fill="#334155">6 Neutrons</text>
+    </g>
+  </g>
+
+
+  <!-- ==================== 3. OXYGEN ATOM (X = 730, Y = 280) ==================== -->
+  <g transform="translate(730, 280)" font-family="'Plus Jakarta Sans', Arial, sans-serif" filter="url(#shadow)">
+    <!-- Outer Shell -->
+    <circle cx="0" cy="0" r="120" fill="url(#oxygenOuter)" stroke="#f43f5e" stroke-width="2"/>
+    <!-- Inner Shell -->
+    <circle cx="0" cy="0" r="60" fill="url(#oxygenInner)" stroke="#fb7185" stroke-width="2"/>
+
+    <!-- Nucleus (Cluster of 8 Protons + 8 Neutrons) -->
+    <g transform="translate(0,0)">
+      <circle cx="-12" cy="-10" r="10" fill="url(#protonGrad)"/>
+      <circle cx="10" cy="-12" r="10" fill="url(#neutronGrad)"/>
+      <circle cx="-10" cy="10" r="10" fill="url(#neutronGrad)"/>
+      <circle cx="12" cy="8" r="10" fill="url(#protonGrad)"/>
+      <circle cx="-2" cy="-14" r="10" fill="url(#protonGrad)"/>
+      <circle cx="-14" cy="0" r="10" fill="url(#neutronGrad)"/>
+      <circle cx="14" cy="-2" r="10" fill="url(#protonGrad)"/>
+      <circle cx="2" cy="14" r="10" fill="url(#neutronGrad)"/>
+      <circle cx="0" cy="0" r="11" fill="url(#protonGrad)"/>
+    </g>
+
+    <!-- Inner Shell Electrons (2 e-) -->
+    <g transform="translate(0, -60)"><circle cx="0" cy="0" r="8" fill="url(#electronGrad)"/></g>
+    <g transform="translate(0, 60)"><circle cx="0" cy="0" r="8" fill="url(#electronGrad)"/></g>
+
+    <!-- Outer Shell Electrons (6 e-) -->
+    <g transform="translate(0, -120)"><circle cx="0" cy="0" r="8" fill="url(#electronGrad)"/></g>
+    <g transform="translate(104, -60)"><circle cx="0" cy="0" r="8" fill="url(#electronGrad)"/></g>
+    <g transform="translate(104, 60)"><circle cx="0" cy="0" r="8" fill="url(#electronGrad)"/></g>
+    <g transform="translate(0, 120)"><circle cx="0" cy="0" r="8" fill="url(#electronGrad)"/></g>
+    <g transform="translate(-104, 60)"><circle cx="0" cy="0" r="8" fill="url(#electronGrad)"/></g>
+    <g transform="translate(-104, -60)"><circle cx="0" cy="0" r="8" fill="url(#electronGrad)"/></g>
+
+    <!-- Labels & Legend -->
+    <text x="0" y="160" font-size="20" font-weight="800" fill="#0f172a" text-anchor="middle">Oxygen Atom</text>
+
+    <!-- Legend Items -->
+    <g transform="translate(-55, 182)">
+      <circle cx="0" cy="0" r="7" fill="url(#electronGrad)"/>
+      <text x="14" y="4" font-size="12" font-weight="700" fill="#334155">8 Electrons</text>
+
+      <circle cx="0" cy="20" r="7" fill="url(#protonGrad)"/>
+      <text x="14" y="24" font-size="12" font-weight="700" fill="#334155">8 Protons</text>
+
+      <circle cx="0" cy="40" r="7" fill="url(#neutronGrad)"/>
+      <text x="14" y="44" font-size="12" font-weight="700" fill="#334155">8 Neutrons</text>
+    </g>
+  </g>
+
+
+  <!-- ==================== 4. NITROGEN ATOM (X = 1010, Y = 280) ==================== -->
+  <g transform="translate(1010, 280)" font-family="'Plus Jakarta Sans', Arial, sans-serif" filter="url(#shadow)">
+    <!-- Outer Shell -->
+    <circle cx="0" cy="0" r="120" fill="url(#nitrogenOuter)" stroke="#3b82f6" stroke-width="2"/>
+    <!-- Inner Shell -->
+    <circle cx="0" cy="0" r="60" fill="url(#nitrogenInner)" stroke="#60a5fa" stroke-width="2"/>
+
+    <!-- Nucleus (Cluster of 7 Protons + 7 Neutrons) -->
+    <g transform="translate(0,0)">
+      <circle cx="-10" cy="-10" r="10" fill="url(#protonGrad)"/>
+      <circle cx="10" cy="-10" r="10" fill="url(#neutronGrad)"/>
+      <circle cx="-10" cy="10" r="10" fill="url(#neutronGrad)"/>
+      <circle cx="10" cy="10" r="10" fill="url(#protonGrad)"/>
+      <circle cx="0" cy="-12" r="10" fill="url(#protonGrad)"/>
+      <circle cx="-12" cy="0" r="10" fill="url(#neutronGrad)"/>
+      <circle cx="12" cy="0" r="10" fill="url(#protonGrad)"/>
+      <circle cx="0" cy="0" r="11" fill="url(#neutronGrad)"/>
+    </g>
+
+    <!-- Inner Shell Electrons (2 e-) -->
+    <g transform="translate(0, -60)"><circle cx="0" cy="0" r="8" fill="url(#electronGrad)"/></g>
+    <g transform="translate(0, 60)"><circle cx="0" cy="0" r="8" fill="url(#electronGrad)"/></g>
+
+    <!-- Outer Shell Electrons (5 e-) -->
+    <g transform="translate(0, -120)"><circle cx="0" cy="0" r="8" fill="url(#electronGrad)"/></g>
+    <g transform="translate(114, -37)"><circle cx="0" cy="0" r="8" fill="url(#electronGrad)"/></g>
+    <g transform="translate(70, 97)"><circle cx="0" cy="0" r="8" fill="url(#electronGrad)"/></g>
+    <g transform="translate(-70, 97)"><circle cx="0" cy="0" r="8" fill="url(#electronGrad)"/></g>
+    <g transform="translate(-114, -37)"><circle cx="0" cy="0" r="8" fill="url(#electronGrad)"/></g>
+
+    <!-- Labels & Legend -->
+    <text x="0" y="160" font-size="20" font-weight="800" fill="#0f172a" text-anchor="middle">Nitrogen Atom</text>
+
+    <!-- Legend Items -->
+    <g transform="translate(-55, 182)">
+      <circle cx="0" cy="0" r="7" fill="url(#electronGrad)"/>
+      <text x="14" y="4" font-size="12" font-weight="700" fill="#334155">7 Electrons</text>
+
+      <circle cx="0" cy="20" r="7" fill="url(#protonGrad)"/>
+      <text x="14" y="24" font-size="12" font-weight="700" fill="#334155">7 Protons</text>
+
+      <circle cx="0" cy="40" r="7" fill="url(#neutronGrad)"/>
+      <text x="14" y="44" font-size="12" font-weight="700" fill="#334155">7 Neutrons</text>
+    </g>
+  </g>
+
+</svg>

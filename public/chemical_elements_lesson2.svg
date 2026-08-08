@@ -1,0 +1,208 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" width="1200" height="675">
+  <defs>
+    <!-- Background Gradient -->
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="70%" stop-color="#f8fafc"/>
+      <stop offset="100%" stop-color="#f1f5f9"/>
+    </linearGradient>
+
+    <!-- Gloss Highlight Overlay for Cubes -->
+    <linearGradient id="glossHighlight" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.45"/>
+      <stop offset="40%" stop-color="#ffffff" stop-opacity="0.1"/>
+      <stop offset="100%" stop-color="#000000" stop-opacity="0.25"/>
+    </linearGradient>
+
+    <linearGradient id="cubeTopGlow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.5"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0.0"/>
+    </linearGradient>
+
+    <!-- Metallic Base Gradients for Chemical Families -->
+    <!-- 1. Gold Metallic (Alkali / Transition) -->
+    <linearGradient id="goldFront" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fef08a"/>
+      <stop offset="50%" stop-color="#eab308"/>
+      <stop offset="100%" stop-color="#a16207"/>
+    </linearGradient>
+
+    <!-- 2. Cyan Tech Metallic (Non-metals / Gas) -->
+    <linearGradient id="cyanFront" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#a5f3fc"/>
+      <stop offset="50%" stop-color="#06b6d4"/>
+      <stop offset="100%" stop-color="#0e7490"/>
+    </linearGradient>
+
+    <!-- 3. Emerald Metallic (Halogens / Life) -->
+    <linearGradient id="emeraldFront" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#a7f3d0"/>
+      <stop offset="50%" stop-color="#10b981"/>
+      <stop offset="100%" stop-color="#047857"/>
+    </linearGradient>
+
+    <!-- 4. Silver/Titanium Metallic (Metals) -->
+    <linearGradient id="silverFront" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f1f5f9"/>
+      <stop offset="50%" stop-color="#94a3b8"/>
+      <stop offset="100%" stop-color="#475569"/>
+    </linearGradient>
+
+    <!-- 5. Purple Crystal (Noble Gases) -->
+    <linearGradient id="purpleFront" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#e9d5ff"/>
+      <stop offset="50%" stop-color="#a855f7"/>
+      <stop offset="100%" stop-color="#6b21a8"/>
+    </linearGradient>
+
+    <!-- 6. Rose/Copper Metallic (Semimetals) -->
+    <linearGradient id="roseFront" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fecdd3"/>
+      <stop offset="50%" stop-color="#f43f5e"/>
+      <stop offset="100%" stop-color="#be123c"/>
+    </linearGradient>
+
+    <!-- Shadow Filters -->
+    <filter id="cubeShadow" x="-20%" y="-20%" width="150%" height="150%">
+      <feDropShadow dx="0" dy="12" stdDeviation="10" flood-color="#0f172a" flood-opacity="0.18"/>
+    </filter>
+  </defs>
+
+  <!-- Background Canvas -->
+  <rect width="1200" height="675" fill="url(#bgGrad)"/>
+
+  <!-- Top Title / Header Line -->
+  <text x="600" y="55" font-family="'Plus Jakarta Sans', Arial, sans-serif" font-size="24" font-weight="900" fill="#0f172a" text-anchor="middle" letter-spacing="0.5">
+    BẢNG CÁC NGUYÊN TỐ HOÁ HỌC TỰ NHIÊN TIÊU BIỂU
+  </text>
+  <line x1="350" y1="70" x2="850" y2="70" stroke="#cbd5e1" stroke-width="2" stroke-linecap="round"/>
+
+
+  <!-- ==================== 1. HYDROGEN (H - Z=1) ==================== -->
+  <g transform="translate(180, 210)" filter="url(#cubeShadow)">
+    <rect x="-100" y="-100" width="200" height="200" rx="24" fill="url(#cyanFront)"/>
+    <rect x="-100" y="-100" width="200" height="200" rx="24" fill="url(#glossHighlight)"/>
+    <rect x="-100" y="-100" width="200" height="200" rx="24" fill="none" stroke="#ffffff" stroke-width="2" opacity="0.6"/>
+
+    <g font-family="'Plus Jakarta Sans', Arial, sans-serif" text-anchor="middle">
+      <text x="-70" y="-60" font-size="22" font-weight="800" fill="#ffffff">1</text>
+      <text x="65" y="-60" font-size="14" font-weight="700" fill="#ffffff" opacity="0.9">1.008</text>
+      <text x="0" y="25" font-size="76" font-weight="900" fill="#ffffff" letter-spacing="-2">H</text>
+      <text x="0" y="65" font-size="17" font-weight="800" fill="#ffffff">Hydrogen</text>
+      <text x="0" y="85" font-size="12" font-weight="600" fill="#e0f2fe">Phi kim (Khí)</text>
+    </g>
+  </g>
+
+
+  <!-- ==================== 2. HELIUM (He - Z=2) ==================== -->
+  <g transform="translate(460, 210)" filter="url(#cubeShadow)">
+    <rect x="-100" y="-100" width="200" height="200" rx="24" fill="url(#purpleFront)"/>
+    <rect x="-100" y="-100" width="200" height="200" rx="24" fill="url(#glossHighlight)"/>
+    <rect x="-100" y="-100" width="200" height="200" rx="24" fill="none" stroke="#ffffff" stroke-width="2" opacity="0.6"/>
+
+    <g font-family="'Plus Jakarta Sans', Arial, sans-serif" text-anchor="middle">
+      <text x="-70" y="-60" font-size="22" font-weight="800" fill="#ffffff">2</text>
+      <text x="65" y="-60" font-size="14" font-weight="700" fill="#ffffff" opacity="0.9">4.0026</text>
+      <text x="0" y="25" font-size="70" font-weight="900" fill="#ffffff" letter-spacing="-2">He</text>
+      <text x="0" y="65" font-size="17" font-weight="800" fill="#ffffff">Helium</text>
+      <text x="0" y="85" font-size="12" font-weight="600" fill="#f3e8ff">Khí hiếm</text>
+    </g>
+  </g>
+
+
+  <!-- ==================== 3. CARBON (C - Z=6) ==================== -->
+  <g transform="translate(740, 210)" filter="url(#cubeShadow)">
+    <rect x="-100" y="-100" width="200" height="200" rx="24" fill="url(#silverFront)"/>
+    <rect x="-100" y="-100" width="200" height="200" rx="24" fill="url(#glossHighlight)"/>
+    <rect x="-100" y="-100" width="200" height="200" rx="24" fill="none" stroke="#ffffff" stroke-width="2" opacity="0.6"/>
+
+    <g font-family="'Plus Jakarta Sans', Arial, sans-serif" text-anchor="middle">
+      <text x="-70" y="-60" font-size="22" font-weight="800" fill="#ffffff">6</text>
+      <text x="65" y="-60" font-size="14" font-weight="700" fill="#ffffff" opacity="0.9">12.011</text>
+      <text x="0" y="25" font-size="76" font-weight="900" fill="#ffffff" letter-spacing="-2">C</text>
+      <text x="0" y="65" font-size="17" font-weight="800" fill="#ffffff">Carbon</text>
+      <text x="0" y="85" font-size="12" font-weight="600" fill="#f1f5f9">Phi kim (Rắn)</text>
+    </g>
+  </g>
+
+
+  <!-- ==================== 4. NITROGEN (N - Z=7) ==================== -->
+  <g transform="translate(1020, 210)" filter="url(#cubeShadow)">
+    <rect x="-100" y="-100" width="200" height="200" rx="24" fill="url(#cyanFront)"/>
+    <rect x="-100" y="-100" width="200" height="200" rx="24" fill="url(#glossHighlight)"/>
+    <rect x="-100" y="-100" width="200" height="200" rx="24" fill="none" stroke="#ffffff" stroke-width="2" opacity="0.6"/>
+
+    <g font-family="'Plus Jakarta Sans', Arial, sans-serif" text-anchor="middle">
+      <text x="-70" y="-60" font-size="22" font-weight="800" fill="#ffffff">7</text>
+      <text x="65" y="-60" font-size="14" font-weight="700" fill="#ffffff" opacity="0.9">14.007</text>
+      <text x="0" y="25" font-size="76" font-weight="900" fill="#ffffff" letter-spacing="-2">N</text>
+      <text x="0" y="65" font-size="17" font-weight="800" fill="#ffffff">Nitrogen</text>
+      <text x="0" y="85" font-size="12" font-weight="600" fill="#e0f2fe">Phi kim (Khí)</text>
+    </g>
+  </g>
+
+
+  <!-- ==================== 5. OXYGEN (O - Z=8) ==================== -->
+  <g transform="translate(180, 470)" filter="url(#cubeShadow)">
+    <rect x="-100" y="-100" width="200" height="200" rx="24" fill="url(#roseFront)"/>
+    <rect x="-100" y="-100" width="200" height="200" rx="24" fill="url(#glossHighlight)"/>
+    <rect x="-100" y="-100" width="200" height="200" rx="24" fill="none" stroke="#ffffff" stroke-width="2" opacity="0.6"/>
+
+    <g font-family="'Plus Jakarta Sans', Arial, sans-serif" text-anchor="middle">
+      <text x="-70" y="-60" font-size="22" font-weight="800" fill="#ffffff">8</text>
+      <text x="65" y="-60" font-size="14" font-weight="700" fill="#ffffff" opacity="0.9">15.999</text>
+      <text x="0" y="25" font-size="76" font-weight="900" fill="#ffffff" letter-spacing="-2">O</text>
+      <text x="0" y="65" font-size="17" font-weight="800" fill="#ffffff">Oxygen</text>
+      <text x="0" y="85" font-size="12" font-weight="600" fill="#ffe4e6">Phi kim (Khí)</text>
+    </g>
+  </g>
+
+
+  <!-- ==================== 6. SODIUM (Na - Z=11) ==================== -->
+  <g transform="translate(460, 470)" filter="url(#cubeShadow)">
+    <rect x="-100" y="-100" width="200" height="200" rx="24" fill="url(#goldFront)"/>
+    <rect x="-100" y="-100" width="200" height="200" rx="24" fill="url(#glossHighlight)"/>
+    <rect x="-100" y="-100" width="200" height="200" rx="24" fill="none" stroke="#ffffff" stroke-width="2" opacity="0.6"/>
+
+    <g font-family="'Plus Jakarta Sans', Arial, sans-serif" text-anchor="middle">
+      <text x="-70" y="-60" font-size="22" font-weight="800" fill="#ffffff">11</text>
+      <text x="65" y="-60" font-size="14" font-weight="700" fill="#ffffff" opacity="0.9">22.990</text>
+      <text x="0" y="25" font-size="70" font-weight="900" fill="#ffffff" letter-spacing="-2">Na</text>
+      <text x="0" y="65" font-size="17" font-weight="800" fill="#ffffff">Sodium</text>
+      <text x="0" y="85" font-size="12" font-weight="600" fill="#fef9c3">Kim loại kiềm</text>
+    </g>
+  </g>
+
+
+  <!-- ==================== 7. ALUMINIUM (Al - Z=13) ==================== -->
+  <g transform="translate(740, 470)" filter="url(#cubeShadow)">
+    <rect x="-100" y="-100" width="200" height="200" rx="24" fill="url(#silverFront)"/>
+    <rect x="-100" y="-100" width="200" height="200" rx="24" fill="url(#glossHighlight)"/>
+    <rect x="-100" y="-100" width="200" height="200" rx="24" fill="none" stroke="#ffffff" stroke-width="2" opacity="0.6"/>
+
+    <g font-family="'Plus Jakarta Sans', Arial, sans-serif" text-anchor="middle">
+      <text x="-70" y="-60" font-size="22" font-weight="800" fill="#ffffff">13</text>
+      <text x="65" y="-60" font-size="14" font-weight="700" fill="#ffffff" opacity="0.9">26.982</text>
+      <text x="0" y="25" font-size="70" font-weight="900" fill="#ffffff" letter-spacing="-2">Al</text>
+      <text x="0" y="65" font-size="17" font-weight="800" fill="#ffffff">Aluminium</text>
+      <text x="0" y="85" font-size="12" font-weight="600" fill="#f1f5f9">Kim loại nghèo</text>
+    </g>
+  </g>
+
+
+  <!-- ==================== 8. CHLORINE (Cl - Z=17) ==================== -->
+  <g transform="translate(1020, 470)" filter="url(#cubeShadow)">
+    <rect x="-100" y="-100" width="200" height="200" rx="24" fill="url(#emeraldFront)"/>
+    <rect x="-100" y="-100" width="200" height="200" rx="24" fill="url(#glossHighlight)"/>
+    <rect x="-100" y="-100" width="200" height="200" rx="24" fill="none" stroke="#ffffff" stroke-width="2" opacity="0.6"/>
+
+    <g font-family="'Plus Jakarta Sans', Arial, sans-serif" text-anchor="middle">
+      <text x="-70" y="-60" font-size="22" font-weight="800" fill="#ffffff">17</text>
+      <text x="65" y="-60" font-size="14" font-weight="700" fill="#ffffff" opacity="0.9">35.45</text>
+      <text x="0" y="25" font-size="70" font-weight="900" fill="#ffffff" letter-spacing="-2">Cl</text>
+      <text x="0" y="65" font-size="17" font-weight="800" fill="#ffffff">Chlorine</text>
+      <text x="0" y="85" font-size="12" font-weight="600" fill="#d1fae5">Halogen (Khí)</text>
+    </g>
+  </g>
+
+</svg>
